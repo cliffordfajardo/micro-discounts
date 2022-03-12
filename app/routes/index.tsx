@@ -1,7 +1,8 @@
 import { json, useLoaderData, useTransition, type LoaderFunction } from "remix";
-import { type DiscountItem, DiscountItems } from "~/data";
 import { SearchForm } from "~/components/SearchForm";
 import homepageCSS from "~/styles/index.css";
+import { ResourceTable } from "~/types/dbTypes";
+import { fetchAllResources } from "~/utils/db.server";
 
 /**
  * @description
@@ -33,18 +34,21 @@ export const links = () => {
  * `loader` is a specific term in remix. In here we fetch or return the data we want the component below to  use.
  * `loader` can only be used in `routes` folder files
  */
-export const loader: LoaderFunction = ({ request }) => {
+export const loader: LoaderFunction = async ({ request }) => {
   const url = new URL(request.url);
   const searchTerm =
     url.searchParams.get("search")?.trim().toLocaleLowerCase() || "";
   const hasNoSerchTermInURL = searchTerm.length === 0;
+  //TODO: optimize this. call upon an interval
+  const discountItems = (await fetchAllResources()).data || [];
+
   let data;
 
   if (hasNoSerchTermInURL) {
-    data = DiscountItems;
+    data = discountItems;
   } else {
-    const filteredItems = DiscountItems.filter((item) =>
-      item.title.toLowerCase().includes(searchTerm)
+    const filteredItems = discountItems.filter((item) =>
+      item.title?.toLowerCase().includes(searchTerm)
     );
     data = filteredItems;
   }
@@ -60,7 +64,7 @@ export const loader: LoaderFunction = ({ request }) => {
  * This component renders the homepage.
  */
 export default function HomePage() {
-  const data = useLoaderData<DiscountItem[]>();
+  const data = useLoaderData<ResourceTable[]>();
   const transition = useTransition();
   console.log(`loader data-----------`, data);
 

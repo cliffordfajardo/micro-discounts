@@ -1,15 +1,15 @@
 import { Form } from "remix";
-import { type DiscountItem } from "~/data";
 import { SearchFilterSideBar } from "../SearchFilterSideBar";
 import { type SUPPORTED_FORM_IDS } from "~/utils";
 import { Button, Input, Loading } from "@nextui-org/react";
+import { ResourceTable } from "~/types/dbTypes";
 
 type SearchFormProps = {
   /**
    * @decription
    * Search results items to display below the search input.
    */
-  searchResults: DiscountItem[];
+  searchResults: ResourceTable[];
   /**
    * @description
    * The `id` value for the form element that you would like to connect
