@@ -1,0 +1,43 @@
+name: 'Feature Request'
+description: Suggest a new feature
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to request a new feature :pray:
+
+        This form for suggesting new feature's or enhancements for [educationaldiscounts](https://github.com/TODO/TODO)
+        If you have a question about how to achieve something and are struggling, please post a question
+        inside of educationaldiscounts's [Discussions tab](https://github.com/TODO/TODO/discussions)
+
+        Before submitting a feature request, please check the links below to see if there is a solution, feature request or question posted there already:
+         - educationaldiscounts's [Discussions tab](https://github.com/TODO/TODO/discussions)
+         - educationaldiscounts's [Open Issues](https://github.com/TODO/TODO/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
+         - educationaldiscounts's [Closed Issues](https://github.com/TODO/TODO/issues?q=is%3Aissue+sort%3Aupdated-desc+is%3Aclosed)
+
+        The more information you fill in, the better the community can help you.
+  - type: textarea
+    id: steps
+    attributes:
+      label: Describe the feature you would like see in educationaldiscounts
+      description: Provide a clear and concise description.
+      placeholder: |
+        eg. It would be great if [...]
+        eg. I wish there was a way to do [...]
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots_or_videos
+    attributes:
+      label: Screenshots or Videos
+      description: |
+        If applicable, add screenshots or a video to help explain your problem.
+        For more information on the supported file image/file types and the file size limits, please refer
+        to the following link: https://docs.github.com/en/github/writing-on-github/working-with-advanced-formatting/attaching-files
+      placeholder: |
+        You can drag your video or image files inside of this editor ↓
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Add any other context about the problem here.

@@ -1,0 +1,39 @@
+{
+  "name": "remix-app-template",
+  "private": true,
+  "description": "",
+  "license": "",
+  "sideEffects": false,
+  "scripts": {
+    "build": "cross-env NODE_ENV=production remix build",
+    "dev": "remix dev",
+    "postinstall": "remix setup node && sh ./scripts/check-volta-cli.sh",
+    "sass": "sass --watch app/:app/"
+  },
+  "dependencies": {
+    "@nextui-org/react": "^1.0.2-beta.4",
+    "@remix-run/react": "^1.2.3",
+    "@remix-run/vercel": "^1.2.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "remix": "^1.2.3"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^1.2.3",
+    "@remix-run/eslint-config": "^1.2.3",
+    "@remix-run/serve": "^1.2.3",
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9",
+    "concurrently": "^7.0.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.9.0",
+    "sass": "^1.49.9",
+    "typescript": "^4.5.5"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "volta": {
+    "node": "17.4.0"
+  }
+}

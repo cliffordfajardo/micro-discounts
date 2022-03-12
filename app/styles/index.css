@@ -1,0 +1,125 @@
+/********************** Homepage Styles ***********************/
+:root {
+  --primary: hsl(180, 59%, 51%);
+}
+
+.page-content {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 4px 16px 4px;
+  height: 60px;
+}
+.navbar ul {
+  margin-left: auto !important;
+  display: flex;
+}
+.navbar ul li {
+  padding: 4px;
+  margin-right: 90px;
+}
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .navbar {
+    background: #6f6f6f96;
+  }
+}
+
+
+
+main {
+  display: flex;
+}
+
+.home-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.categories-list {
+  display: flex;
+}
+
+.categories-list-item {
+  /*  */
+}
+.category-item {
+  padding: 16px;
+  width: 200px;
+}
+.categories-list-item-icon {
+  background-color: #fff;
+  font-size: 36px;
+  margin: 15px auto;
+  text-align: center;
+  width: 1.7em;
+  line-height: 1.64em;
+  border-radius: 50%;
+  border: solid rgba(0, 0, 0, 0.1) 3px;
+}
+@media (prefers-color-scheme: dark) {
+  .categories-list-item-icon {
+    background-color: #eee !important;
+    color: #222;
+  }
+}
+
+
+/* Github corner icon*/
+.github-corner svg {
+	 border: 0;
+	 color: #fff;
+	 fill: var(--primary);
+	 height: 80px;
+	 position: absolute;
+	 right: 0;
+	 top: 0;
+	 width: 80px;
+	 pointer-events: none;
+}
+ .github-corner .octo-triangle {
+	 pointer-events: auto;
+}
+ .github-corner .octo-arm {
+	 fill: currentColor;
+	 transform-origin: 130px 106px;
+}
+ .github-corner:hover .octo-arm {
+	 animation: octocat-wave 560ms ease-in-out;
+}
+ .github-corner .octo-body {
+	 fill: currentColor;
+}
+ @keyframes octocat-wave {
+	 0%, 100% {
+		 transform: rotate(0);
+	}
+	 20%, 60% {
+		 transform: rotate(-25deg);
+	}
+	 40%, 80% {
+		 transform: rotate(10deg);
+	}
+}
+ @media (max-width: 500px) {
+	 .github-corner:hover .octo-arm {
+		 animation: none;
+	}
+	 .github-corner .octo-arm {
+		 animation: octocat-wave 560ms ease-in-out;
+	}
+}
+
+
+/********************** About Styles ***********************/
