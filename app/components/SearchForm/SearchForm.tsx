@@ -3,6 +3,7 @@ import { SearchFilterSideBar } from "../SearchFilterSideBar";
 import { type SUPPORTED_FORM_IDS } from "~/utils";
 import { Button, Input, Loading } from "@nextui-org/react";
 import { ResourceTable } from "~/types/dbTypes";
+import { ResourceCardGroup } from "../ResourceCardGroup";
 
 type SearchFormProps = {
   /**
@@ -45,9 +46,7 @@ const SearchForm = ({ searchResults = [] }: SearchFormProps) => {
           </Form>
           {searchResults.length > 0 ? (
             <div className="results">
-              {searchResults.map((item, i) => (
-                <p key={i}>{item?.title}</p>
-              ))}
+              <ResourceCardGroup resources={searchResults} />
             </div>
           ) : null}
         </div>
