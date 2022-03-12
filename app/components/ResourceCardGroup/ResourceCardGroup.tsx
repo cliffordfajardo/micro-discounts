@@ -9,14 +9,13 @@ const StyledBadge = styled('span', {
   borderRadius: "$sm",
   border: "2px solid $gray200",
   padding: "$xs",
-  padding: "$2",
+  padding: "$1",
 });
 
 const Badge = ({ title }: { title: string }) => {
-  const { theme } = useTheme();
   return (
     <StyledBadge>
-      <Text span weight={"light"} >#{title}</Text>
+      <Text span weight={"light"} size={13} >#{title}</Text>
     </StyledBadge>
   )
 }
@@ -31,10 +30,17 @@ const ResourceCardGroup = ({ resources }: Props) => {
               width: 280,
               height: 280,
             }}
-            css={{
-              paddingTop: "$3",
-              paddingBottom: "$3",
-            }}>
+              css={{
+                paddingTop: "$3",
+                paddingBottom: "$3",
+                cursor: 'pointer',
+              }}
+              hoverable
+              onClick={() => {
+                window.open(resource.url, '_blank');
+              }}
+            // clickable
+            >
               <div style={{
                 display: "flex",
                 flexDirection: 'row',
@@ -43,7 +49,7 @@ const ResourceCardGroup = ({ resources }: Props) => {
                 alignItems: "center",
               }}>
                 <div>
-                  <img src="/icons/canva-logo.png" alt="canva logo" height={50} width={50}/>
+                  <img src="/icons/canva-logo.png" alt="canva logo" height={50} width={50} />
                 </div>
                 <div>
                   <Text span >
@@ -62,9 +68,9 @@ const ResourceCardGroup = ({ resources }: Props) => {
               }}>
 
                 <div><Text span >{resource.description}</Text></div>
-                <div>
-                  <Badge title="design" />
-                </div>
+                <Grid.Container gap={1}>
+                  {resource?.keywords?.map(kw => <Grid key={kw} ><Badge title={kw} /></Grid>)}
+                </Grid.Container>
               </div>
 
 
