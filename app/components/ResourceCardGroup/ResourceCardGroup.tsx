@@ -42,11 +42,8 @@ const ResourceCardGroup = ({ resources }: Props) => {
                 gap: 19,
                 alignItems: "center",
               }}>
-                <div style={{
-                  height: 50,
-                  width: 50,
-                }}>
-                  <img src="/icons/canva-logo.png" alt="canva logo" />
+                <div>
+                  <img src="/icons/canva-logo.png" alt="canva logo" height={50} width={50}/>
                 </div>
                 <div>
                   <Text span >
@@ -60,7 +57,8 @@ const ResourceCardGroup = ({ resources }: Props) => {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                height: '100%'
+                height: '100%',
+                marginTop: 5
               }}>
 
                 <div><Text span >{resource.description}</Text></div>

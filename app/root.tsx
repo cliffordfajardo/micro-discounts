@@ -7,8 +7,7 @@ import {
   ScrollRestoration,
   useCatch,
 } from "remix";
-// import type { MetaFunction } from "remix";
-import { NextUIProvider } from "@nextui-org/react";
+import { createTheme, NextUIProvider } from "@nextui-org/react";
 
 // export const meta: MetaFunction = () => {
 //   return { title: "New Remix App" };
@@ -40,13 +39,22 @@ function Document({
     </html>
   );
 }
+const theme = createTheme({
+  type: "light",
+  theme: {
+
+    fonts: {
+      sans: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto','Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;",
+    }
+  }
+})
 
 export default function App() {
   // throw new Error("💣💥 Booooom");
 
   return (
     <Document title="Educational Discounts">
-      <NextUIProvider>
+      <NextUIProvider theme={theme}>
         <Outlet />
       </NextUIProvider>
     </Document>
