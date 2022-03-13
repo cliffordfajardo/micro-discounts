@@ -21,7 +21,7 @@ export default function NavBar() {
   >
     <Col>
       <Link to="/" color='$text'>
-        <Text h3 weight={"medium"}>
+        <Text h3 weight={"extrabold"}>
          MicroDiscount
         </Text>
       </Link>

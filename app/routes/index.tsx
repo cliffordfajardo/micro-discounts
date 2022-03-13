@@ -73,8 +73,8 @@ export default function HomePage() {
   return (
     <DefaultLayout>
       <section style={{ marginTop: 60 }}>
-        <Text h2>
-          200+ Curated Free Student/Teach Discounts
+        <Text span size={30}>
+        The world's largest directory of discounts and resources for students and teachers.
         </Text>
       </section>
 
