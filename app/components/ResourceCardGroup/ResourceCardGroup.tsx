@@ -52,7 +52,7 @@ export default function ResourceCardGroup({ resources }: Props){
               }}>
 
                 <div><Text span >{resource.description}</Text></div>
-                <Grid.Container gap={1}>
+                <Grid.Container gap={0.3}>
                   {resource?.keywords?.map(kw => <Grid key={kw} ><Badge title={kw} /></Grid>)}
                 </Grid.Container>
               </div>
@@ -90,7 +90,7 @@ export function faviconUrl(size: number, url: string): string {
 const StyledBadge = styled('span', {
   borderRadius: "$sm",
   border: "2px solid $gray200",
-  padding: "$xs",
+  padding: "$1",
 });
 
 const Badge = ({ title }: { title: string }) => {
