@@ -2,7 +2,7 @@ import { json, useLoaderData, useTransition, type LoaderFunction } from "remix";
 import { SearchForm } from "~/components/SearchForm";
 import homepageCSS from "~/styles/index.css";
 import { ResourceTable } from "~/types/dbTypes";
-import { debug, fetchAllResources } from "~/utils";
+import { debug, getDb, filterDBItems } from "~/utils";
 
 /**
  * @description
@@ -35,25 +35,21 @@ export const links = () => {
  * `loader` is a specific term in remix. In here we fetch or return the data we want the component below to  use.
  * `loader` can only be used in `routes` folder files
  */
-export const loader: LoaderFunction = async ({ request }) => {
+export const loader: LoaderFunction = async ({ request, params }) => {
   debug();
+  console.log("params-----", params);
   const url = new URL(request.url);
   const searchTermParam = url.searchParams.get("search")?.trim().toLocaleLowerCase() || "";
   const categoryParam = url.searchParams.get("category")?.trim().toLocaleLowerCase() || "";
-  const hasNoSearchTermParamInURL = searchTermParam.length === 0;
-  const hasNoCategoryParamInURL = categoryParam.length === 0;
+  const tagsParam = url.searchParams.get("tags")?.trim().toLocaleLowerCase() || "";
+
+  const database = await getDb();
+  const discountItems = (await database.fetchAllResources()).data || [];
   //TODO: optimize this. call upon an interval
-  const discountItems = (await fetchAllResources()).data || [];
+  const items = filterDBItems(discountItems, { searchTerm: searchTermParam, category: categoryParam, tags: tagsParam });
 
-  let data;
-
-  if (hasNoSearchTermParamInURL) {
-    data = discountItems;
-  } else {
-    const filteredItems = discountItems.filter((item) => item.title?.toLowerCase().includes(searchTermParam));
-    data = filteredItems;
-  }
-  return json(data, {
+  return json(items, {
+    // status: 301,
     headers: {
       "Cache-Control": "max-age=60, stale-while-revalidate=60",
     },
@@ -65,6 +61,7 @@ export const loader: LoaderFunction = async ({ request }) => {
  * This component renders the homepage.
  */
 export default function HomePage() {
+  //useParams() https://remix.run/docs/en/v1/api/conventions#dynamic-route-parameters
   const data = useLoaderData<ResourceTable[]>();
   const transition = useTransition();
   console.log(`loader data-----------`, data);
@@ -97,7 +94,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      <main>
+      <main style={{ marginTop: 30 }}>
         <SearchForm searchResults={data} formName="search-form" />
       </main>
     </>

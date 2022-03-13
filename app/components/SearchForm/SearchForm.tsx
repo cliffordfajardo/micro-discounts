@@ -39,7 +39,7 @@ const SearchForm = ({ searchResults = [] }: SearchFormProps) => {
               type="search"
               clearable
               size="lg"
-              width="40%"
+              width="100%"
               // contentRight={<Loading size="xs" />}
             />
           </Form>

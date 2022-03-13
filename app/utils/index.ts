@@ -1,5 +1,7 @@
+import { type ResourceTable } from "~/types/dbTypes";
+
 export * from "./debug";
-export * from "./db.server";
+export * from "./database";
 // TODO export supabase database class
 
 // ************* CONSTANTS************************
@@ -16,3 +18,42 @@ export * from "./db.server";
 export type SUPPORTED_FORM_IDS =
   // this form is used on the homepage for displaying the list of educational discount items
   "search-form";
+
+type filterDBItemsFunction = (
+  data: ResourceTable[],
+  queryParams: { category: string; searchTerm: string; tags: string },
+) => ResourceTable[];
+
+export const filterDBItems: filterDBItemsFunction = (
+  data: ResourceTable[] = [],
+  { category = "", searchTerm = "", tags = "" },
+) => {
+  if (data.length <= 1) return data;
+
+  let result: ResourceTable[] = [];
+  const hasSearchTerm = searchTerm.length > 0;
+  const hasCategories = category.length > 0;
+  const hasTags = tags.length > 0;
+  const isDefaultSearch = !hasSearchTerm && (category === "all" || category === "") && tags === "";
+
+  if (isDefaultSearch) {
+    return data;
+  }
+  if (hasSearchTerm) {
+    result = data.filter((item) => {
+      return item.title?.toLocaleLowerCase().includes(searchTerm) || item.description?.includes(searchTerm);
+    });
+  }
+  if (hasCategories) {
+    result = result.filter((item) => {
+      return (item.category || "").toLocaleLowerCase().includes(category);
+    });
+  }
+  if (hasTags) {
+    result = result.filter((item) => {
+      // @ts-ignore
+      return (item?.tags || "").toLocaleLowerCase().includes(tags);
+    });
+  }
+  return result;
+};

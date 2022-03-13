@@ -1,12 +1,23 @@
-import { SQLDatabase } from "./database";
+// TODO install sqlite
+import { ResourceTable } from "~/types/dbTypes";
 
-export class SQLiteDB extends SQLDatabase {
+if (!process.env.IS_SQLITE_ENABLED) {
+  console.error(
+    `Please set SUPABASE_URL and SUPABASE_SERVICE_KEY environment variables.\n` +
+      `Please check that you have .env file created with the aforementioned supbase credentials.`,
+  );
+  process.exit(1);
+}
+
+export class SQLiteDB {
   private db: any;
-  protected constructor(db: any) {
-    super();
-    this.db = db;
+  constructor() {}
+
+  public async setup(): Promise<any> {
+    // TODO
   }
 
-  public static async setup(): Promise<any> {}
-  // public async shutdown(_attemptNumber: number = 0): Promise<void> { }
+  public async fetchAllResources(): Promise<any> {
+    // TODO
+  }
 }
