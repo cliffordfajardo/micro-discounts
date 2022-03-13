@@ -2,7 +2,7 @@ import { json, useLoaderData, useTransition, type LoaderFunction } from "remix";
 import { SearchForm } from "~/components/SearchForm";
 import homepageCSS from "~/styles/index.css";
 import { ResourceTable } from "~/types/dbTypes";
-import { fetchAllResources } from "~/utils/db.server";
+import { debug, fetchAllResources } from "~/utils";
 
 /**
  * @description
@@ -25,6 +25,8 @@ export const links = () => {
   ];
 };
 
+// const discountItems = (await fetchAllResources()).data || [];
+
 /**
  * @description
  * Fetch the discount items on the server.
@@ -35,20 +37,24 @@ export const links = () => {
  * `loader` can only be used in `routes` folder files
  */
 export const loader: LoaderFunction = async ({ request }) => {
+  debug();
   const url = new URL(request.url);
-  const searchTerm =
+  const searchTermParam =
     url.searchParams.get("search")?.trim().toLocaleLowerCase() || "";
-  const hasNoSerchTermInURL = searchTerm.length === 0;
+  const categoryParam =
+    url.searchParams.get("category")?.trim().toLocaleLowerCase() || "";
+  const hasNoSearchTermParamInURL = searchTermParam.length === 0;
+  const hasNoCategoryParamInURL = categoryParam.length === 0;
   //TODO: optimize this. call upon an interval
   const discountItems = (await fetchAllResources()).data || [];
 
   let data;
 
-  if (hasNoSerchTermInURL) {
+  if (hasNoSearchTermParamInURL) {
     data = discountItems;
   } else {
     const filteredItems = discountItems.filter((item) =>
-      item.title?.toLowerCase().includes(searchTerm)
+      item.title?.toLowerCase().includes(searchTermParam)
     );
     data = filteredItems;
   }

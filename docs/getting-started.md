@@ -35,4 +35,10 @@ If you're used to using the `vercel dev` command provided by [Vercel CLI](https:
 
 
 ## Debugging
-- TODO: add section on how to debug server with VScode breakpoints etc
+If you are using VS Code as your text editor, you can use the builtin break point debugger during development.
+To get the application running in debugger mode follow the steps below:
+- ensure you are not running a local server already, if so kill/quit the process
+- click the bug icon in your side bar
+- click the "Run npm run dev" option in the select dropdown list. This will start start your server in debug mode. Try reloading the homepage and putting a break point inside your `loader` function for example.
+
+If you are unable to get VS Code debugger working follow this video: https://gist.github.com/kiliman/a9d7c874af03369a1d105a92560d89e9

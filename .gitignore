@@ -9,5 +9,8 @@ node_modules
 /public/build
 /api/index.js
 
-# Local dev for Dom 
+# Local dev for Dom
 yarn.lock
+
+NOTES*
+SCRATCHPAD*
