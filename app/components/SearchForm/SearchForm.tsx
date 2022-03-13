@@ -1,7 +1,7 @@
 import { Form } from "remix";
 import { SearchFilterSideBar } from "../SearchFilterSideBar";
 import { type SUPPORTED_FORM_IDS } from "~/utils";
-import { Button, Input, Loading } from "@nextui-org/react";
+import { Button, Input, Loading, Text } from "@nextui-org/react";
 import { ResourceTable } from "~/types/dbTypes";
 import { ResourceCardGroup } from "../ResourceCardGroup";
 
@@ -33,19 +33,21 @@ const SearchForm = ({ searchResults = [] }: SearchFormProps) => {
           <Form id="search-form" className="search-form" method="get">
             <Input
               defaultValue=""
-              placeholder="Search a TV show..."
+              placeholder="Search..."
               autoComplete="off"
               name="search"
               type="search"
               clearable
+              size="lg"
+              width="40%"
               // contentRight={<Loading size="xs" />}
             />
-            <Button color="primary" auto type="submit">
-              Search
-            </Button>
           </Form>
           {searchResults.length > 0 ? (
-            <div className="results">
+            <div>
+              <div style={{marginTop: 20}}>
+              <Text span>{searchResults.length} resources</Text>
+                </div>
               <ResourceCardGroup resources={searchResults} />
             </div>
           ) : null}
