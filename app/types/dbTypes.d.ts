@@ -3,7 +3,7 @@ export interface ResourceTable {
   title?: string;
   description?: string;
   category?: string;
-  keywords?: string[];
+  tags?: string[];
   domain?: string;
   url?: string;
   tfa?: string[];

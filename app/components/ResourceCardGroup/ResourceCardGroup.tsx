@@ -60,9 +60,9 @@ export default function ResourceCardGroup({ resources }: Props) {
                 <div>
                   <Text span>{resource.description}</Text>
                 </div>
-                <Grid.Container gap={0.3}>
-                  {resource?.keywords?.map((kw) => (
-                    <Grid key={kw}>
+                <Grid.Container gap={0.3} wrap={"wrap"}>
+                  {resource?.tags?.map((kw) => (
+                    <Grid key={kw} css={{paddingTop: "$xs"}}>
                       <Badge title={kw} />
                     </Grid>
                   ))}
