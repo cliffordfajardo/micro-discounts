@@ -28,7 +28,7 @@ const SearchForm = ({ searchResults = [] }: SearchFormProps) => {
     <>
       <SearchFilterSideBar formName="search-form" />
 
-      <section className="search-results" style={{marginLeft: 50}}>
+      <section className="search-results" style={{flex: 3}}>
         <div className="container">
           <Form id="search-form" className="search-form" method="get">
             <Input
