@@ -1,7 +1,9 @@
+import { DefaultLayout } from "~/layouts/DefaultLayout";
+
 export default function AboutPage() {
   //
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
+    <DefaultLayout>
       <h1>Welcome to About page</h1>
       <ul>
         <li>
@@ -20,6 +22,7 @@ export default function AboutPage() {
           </a>
         </li>
       </ul>
-    </div>
+    </DefaultLayout>
+
   );
 }

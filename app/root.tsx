@@ -1,5 +1,18 @@
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch } from "remix";
 import { createTheme, NextUIProvider } from "@nextui-org/react";
+import IndexCss from '~/styles/index.css';
+/**
+ * @description
+ * <link> tags that will be embedded in the <head> for this page.
+ */
+ export const links = () => {
+  return [
+    {
+      rel: "stylesheet",
+      href: IndexCss,
+    },
+  ];
+};
 
 // export const meta: MetaFunction = () => {
 //   return { title: "New Remix App" };
@@ -16,7 +29,9 @@ function Document({ children, title = "App title" }: { children: React.ReactNode
         <Links />
       </head>
       <body>
-        <div className="page-content">{children}</div>
+        <NextUIProvider theme={theme}>
+          <div className="page-content">{children}</div>
+        </NextUIProvider>
 
         <ScrollRestoration />
         <Scripts />
@@ -39,9 +54,7 @@ export default function App() {
 
   return (
     <Document title="Educational Discounts">
-      <NextUIProvider theme={theme}>
-        <Outlet />
-      </NextUIProvider>
+      <Outlet />
     </Document>
   );
 }
@@ -52,11 +65,9 @@ export function CatchBoundary() {
 
   return (
     <Document title={`${caught.status} ${caught.statusText}`}>
-      <NextUIProvider>
-        <p>
-          [CatchBoundary]: {caught.status} {caught.statusText}
-        </p>
-      </NextUIProvider>
+      <p>
+        [CatchBoundary]: {caught.status} {caught.statusText}
+      </p>
     </Document>
   );
 }
@@ -65,9 +76,7 @@ export function CatchBoundary() {
 export function ErrorBoundary({ error }: { error: Error }) {
   return (
     <Document title="Error!">
-      <NextUIProvider>
-        <p>[ErrorBoundary]: There was an error: {error.message}</p>
-      </NextUIProvider>
+      <p>[ErrorBoundary]: There was an error: {error.message}</p>
     </Document>
   );
 }

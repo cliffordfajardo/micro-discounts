@@ -9,27 +9,6 @@
   margin: 0 auto;
 }
 
-.navbar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 4px 16px 4px;
-  height: 60px;
-}
-.navbar ul {
-  margin-left: auto !important;
-  display: flex;
-}
-.navbar ul li {
-  padding: 4px;
-  margin-right: 90px;
-}
-.navbar ul li a {
-  color: white;
-  text-decoration: none;
-}
-
 @media (prefers-color-scheme: dark) {
   .navbar {
     background: #6f6f6f96;

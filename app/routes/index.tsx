@@ -1,8 +1,11 @@
+import {  Text } from "@nextui-org/react";
 import { json, useLoaderData, useTransition, type LoaderFunction } from "remix";
+import { NavBar } from "~/layouts/NavBar";
 import { SearchForm } from "~/components/SearchForm";
 import homepageCSS from "~/styles/index.css";
 import { ResourceTable } from "~/types/dbTypes";
 import { debug, getDb, filterDBItems } from "~/utils";
+import { DefaultLayout } from "~/layouts/DefaultLayout";
 
 /**
  * @description
@@ -43,6 +46,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   const categoryParam = url.searchParams.get("category")?.trim().toLocaleLowerCase() || "";
   const tagsParam = url.searchParams.get("tags")?.trim().toLocaleLowerCase() || "";
 
+  console.log('test', tagsParam);
   const database = await getDb();
   const discountItems = (await database.fetchAllResources()).data || [];
   //TODO: optimize this. call upon an interval
@@ -67,36 +71,16 @@ export default function HomePage() {
   console.log(`loader data-----------`, data);
 
   return (
-    <>
-      <p>
-        Transition States:
-        {transition.state === "submitting" ? "submitting " : null}
-        {transition.state === "loading" ? "loading " : null}
-        {transition.state === "idle" ? "idle " : null}
-      </p>
-
-      <nav className="navbar">
-        <ul className="navbar-nav navbar-table ml-auto pr-5">
-          <li className="nav-item">
-            <a className="nav-link" href="#">
-              About --
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      <section style={{ marginTop: 100 }}>
-        <h2>Startup Library</h2>
-        <p>
-          Over the past 15 years, we’ve created many videos, podcasts and essays as resources for startup founders.
-          We’ve now consolidated them here in the YC Startup Library. A selection of this content makes up the core
-          curriculum of Startup School, our free online platform and global community for founders.
-        </p>
+    <DefaultLayout>
+      <section style={{ marginTop: 60 }}>
+        <Text h2>
+          200+ Curated Free Student/Teach Discounts
+        </Text>
       </section>
 
       <main style={{ marginTop: 30 }}>
         <SearchForm searchResults={data} formName="search-form" />
       </main>
-    </>
+    </DefaultLayout>
   );
 }
