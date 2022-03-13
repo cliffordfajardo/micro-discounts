@@ -1,7 +1,6 @@
-export * from './debug'
-export * from './db.server';
+export * from "./debug";
+export * from "./db.server";
 // TODO export supabase database class
-
 
 // ************* CONSTANTS************************
 /**
@@ -16,5 +15,4 @@ export * from './db.server';
  */
 export type SUPPORTED_FORM_IDS =
   // this form is used on the homepage for displaying the list of educational discount items
-  | 'search-form'
-
+  "search-form";

@@ -1,25 +1,11 @@
-import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-  useCatch,
-} from "remix";
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch } from "remix";
 import { createTheme, NextUIProvider } from "@nextui-org/react";
 
 // export const meta: MetaFunction = () => {
 //   return { title: "New Remix App" };
 // };
 
-function Document({
-  children,
-  title = "App title",
-}: {
-  children: React.ReactNode;
-  title?: string;
-}) {
+function Document({ children, title = "App title" }: { children: React.ReactNode; title?: string }) {
   return (
     <html lang="en">
       <head>
@@ -42,12 +28,11 @@ function Document({
 const theme = createTheme({
   type: "light",
   theme: {
-
     fonts: {
       sans: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto','Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;",
-    }
-  }
-})
+    },
+  },
+});
 
 export default function App() {
   // throw new Error("💣💥 Booooom");

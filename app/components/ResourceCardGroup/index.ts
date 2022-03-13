@@ -1,1 +1,1 @@
-export { default as ResourceCardGroup } from './ResourceCardGroup'
+export { default as ResourceCardGroup } from "./ResourceCardGroup";

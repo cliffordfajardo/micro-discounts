@@ -13,8 +13,7 @@ export const links = () => {
     {
       rel: "stylesheet",
       href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css",
-      integrity:
-        "sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==",
+      integrity: "sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==",
       crossOrigin: "anonymous",
       referrerPolicy: "no-referrer",
     },
@@ -39,10 +38,8 @@ export const links = () => {
 export const loader: LoaderFunction = async ({ request }) => {
   debug();
   const url = new URL(request.url);
-  const searchTermParam =
-    url.searchParams.get("search")?.trim().toLocaleLowerCase() || "";
-  const categoryParam =
-    url.searchParams.get("category")?.trim().toLocaleLowerCase() || "";
+  const searchTermParam = url.searchParams.get("search")?.trim().toLocaleLowerCase() || "";
+  const categoryParam = url.searchParams.get("category")?.trim().toLocaleLowerCase() || "";
   const hasNoSearchTermParamInURL = searchTermParam.length === 0;
   const hasNoCategoryParamInURL = categoryParam.length === 0;
   //TODO: optimize this. call upon an interval
@@ -53,9 +50,7 @@ export const loader: LoaderFunction = async ({ request }) => {
   if (hasNoSearchTermParamInURL) {
     data = discountItems;
   } else {
-    const filteredItems = discountItems.filter((item) =>
-      item.title?.toLowerCase().includes(searchTermParam)
-    );
+    const filteredItems = discountItems.filter((item) => item.title?.toLowerCase().includes(searchTermParam));
     data = filteredItems;
   }
   return json(data, {
@@ -96,11 +91,9 @@ export default function HomePage() {
       <section style={{ marginTop: 100 }}>
         <h2>Startup Library</h2>
         <p>
-          Over the past 15 years, we’ve created many videos, podcasts and essays
-          as resources for startup founders. We’ve now consolidated them here in
-          the YC Startup Library. A selection of this content makes up the core
-          curriculum of Startup School, our free online platform and global
-          community for founders.
+          Over the past 15 years, we’ve created many videos, podcasts and essays as resources for startup founders.
+          We’ve now consolidated them here in the YC Startup Library. A selection of this content makes up the core
+          curriculum of Startup School, our free online platform and global community for founders.
         </p>
       </section>
 

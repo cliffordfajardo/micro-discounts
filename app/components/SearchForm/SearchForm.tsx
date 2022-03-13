@@ -28,7 +28,7 @@ const SearchForm = ({ searchResults = [] }: SearchFormProps) => {
     <>
       <SearchFilterSideBar formName="search-form" />
 
-      <section className="search-results" style={{flex: 3}}>
+      <section className="search-results" style={{ flex: 3 }}>
         <div className="container">
           <Form id="search-form" className="search-form" method="get">
             <Input
@@ -45,9 +45,9 @@ const SearchForm = ({ searchResults = [] }: SearchFormProps) => {
           </Form>
           {searchResults.length > 0 ? (
             <div>
-              <div style={{marginTop: 20}}>
-              <Text span>{searchResults.length} resources</Text>
-                </div>
+              <div style={{ marginTop: 20 }}>
+                <Text span>{searchResults.length} resources</Text>
+              </div>
               <ResourceCardGroup resources={searchResults} />
             </div>
           ) : null}

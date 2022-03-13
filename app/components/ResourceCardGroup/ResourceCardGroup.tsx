@@ -37,10 +37,7 @@ export default function ResourceCardGroup({ resources }: Props) {
               >
                 <div>
                   <img
-                    src={
-                      IconSvgPathMap[resource?.domain || ""] ||
-                      faviconUrl(50, resource?.url || "")
-                    }
+                    src={IconSvgPathMap[resource?.domain || ""] || faviconUrl(50, resource?.url || "")}
                     alt="canva logo"
                     height={50}
                     width={50}

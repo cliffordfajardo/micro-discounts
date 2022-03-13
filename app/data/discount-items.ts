@@ -5,13 +5,13 @@
 export type DiscountItem = {
   title: string;
   domain: string;
-  tfa: string[]
+  tfa: string[];
   documentation: string;
   keywords: string[];
   url?: string;
-}
+};
 
-export const DiscountItems:DiscountItem[] = [
+export const DiscountItems: DiscountItem[] = [
   {
     title: "21st Century Insurance",
     domain: "21st.com",
@@ -44,24 +44,21 @@ export const DiscountItems:DiscountItem[] = [
     title: "All State Insurance",
     domain: "allstate.com",
     tfa: ["students"],
-    documentation:
-      "https://www.allstate.com/auto-insurance/car-insurance-discounts.aspx",
+    documentation: "https://www.allstate.com/auto-insurance/car-insurance-discounts.aspx",
     keywords: ["utilities"],
   },
   {
     title: "Ally Bank",
     domain: "ally.com",
     tfa: ["students"],
-    documentation:
-      "https://www.ally.com/do-it-right/life/smart-saving-accounts-for-college-students/",
+    documentation: "https://www.ally.com/do-it-right/life/smart-saving-accounts-for-college-students/",
     keywords: ["finance"],
   },
   {
     title: "Amazon",
     domain: "amazon.com",
     tfa: ["students"],
-    documentation:
-      "https://www.amazon.com/Amazon-Student/b?ie=UTF8&node=668781011",
+    documentation: "https://www.amazon.com/Amazon-Student/b?ie=UTF8&node=668781011",
     keywords: ["retail", "entertainment"],
   },
   {
@@ -96,8 +93,7 @@ export const DiscountItems:DiscountItem[] = [
     title: "Auto Desk",
     domain: "autodesk.com",
     tfa: ["teachers", "students"],
-    documentation:
-      "https://www.autodesk.com/education/edu-software/overview?sorting=featured&filters=individual",
+    documentation: "https://www.autodesk.com/education/edu-software/overview?sorting=featured&filters=individual",
     keywords: ["software"],
   },
   {
@@ -144,8 +140,7 @@ export const DiscountItems:DiscountItem[] = [
     title: "Coursera",
     domain: "coursera.org",
     tfa: ["students"],
-    documentation:
-      "https://www.coursera.org/for-university-and-college-students",
+    documentation: "https://www.coursera.org/for-university-and-college-students",
     keywords: ["education"],
   },
   {
@@ -168,16 +163,14 @@ export const DiscountItems:DiscountItem[] = [
     domain: "digitalocean.com",
     url: "https://www.digitalocean.com/",
     tfa: ["students"],
-    documentation:
-      "https://www.digitalocean.com/community/questions/student-discounts",
+    documentation: "https://www.digitalocean.com/community/questions/student-discounts",
     keywords: ["cloud"],
   },
   {
     title: "Docker",
     domain: "docker.com",
     tfa: ["teachers", "students"],
-    documentation:
-      "https://www.docker.com/blog/announcing-docker-student-developer-kit-campus-ambassador-program/",
+    documentation: "https://www.docker.com/blog/announcing-docker-student-developer-kit-campus-ambassador-program/",
     keywords: ["developer", "cloud"],
   },
   {
@@ -226,8 +219,7 @@ export const DiscountItems:DiscountItem[] = [
     title: "Greyhound",
     domain: "greyhound.com",
     tfa: ["students"],
-    documentation:
-      "https://www.greyhound.com/en/help-and-info/ticket-info/discounts",
+    documentation: "https://www.greyhound.com/en/help-and-info/ticket-info/discounts",
     keywords: ["transportation"],
   },
   {
@@ -329,8 +321,7 @@ export const DiscountItems:DiscountItem[] = [
     domain: "privateinternetaccess.com",
     url: "https://www.privateinternetaccess.com",
     tfa: ["students"],
-    documentation:
-      "https://www.privateinternetaccess.com/pages/student-discount",
+    documentation: "https://www.privateinternetaccess.com/pages/student-discount",
     keywords: ["vpn"],
   },
   {
@@ -344,8 +335,7 @@ export const DiscountItems:DiscountItem[] = [
     title: "Regal Cinemas",
     domain: "regmovies.com",
     tfa: ["students"],
-    documentation:
-      "https://www.regmovies.com/static/en/us/theatre/student-pricing-locations",
+    documentation: "https://www.regmovies.com/static/en/us/theatre/student-pricing-locations",
     keywords: ["entertainment"],
   },
   {
@@ -359,8 +349,7 @@ export const DiscountItems:DiscountItem[] = [
     title: "Slack",
     domain: "slack.com",
     tfa: ["teachers", "students"],
-    documentation:
-      "https://slack.com/help/articles/206646877-Apply-for-the-Slack-for-Education-discount",
+    documentation: "https://slack.com/help/articles/206646877-Apply-for-the-Slack-for-Education-discount",
     keywords: ["communication"],
   },
   {
@@ -410,8 +399,7 @@ export const DiscountItems:DiscountItem[] = [
     title: "The North Face",
     domain: "thenorthface.com",
     tfa: ["students"],
-    documentation:
-      "https://www.thenorthface.com/help/the-north-face-student-discount-program.html",
+    documentation: "https://www.thenorthface.com/help/the-north-face-student-discount-program.html",
     keywords: ["retail"],
   },
   {
@@ -426,8 +414,7 @@ export const DiscountItems:DiscountItem[] = [
     domain: "usbank.com",
     url: "https://www.usbank.com",
     tfa: ["students"],
-    documentation:
-      "https://www.usbank.com/bank-accounts/checking-accounts/student-checking-account.html",
+    documentation: "https://www.usbank.com/bank-accounts/checking-accounts/student-checking-account.html",
     keywords: ["finance"],
   },
   {

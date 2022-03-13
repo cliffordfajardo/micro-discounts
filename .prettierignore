@@ -1,0 +1,7 @@
+build
+.cache
+dist
+public
+pnpm-lock.yaml
+node_modules
+package.json

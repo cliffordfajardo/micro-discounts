@@ -1,1 +1,1 @@
-export { default as ViewSourceGithub } from './ViewSourceGithub'
+export { default as ViewSourceGithub } from "./ViewSourceGithub";

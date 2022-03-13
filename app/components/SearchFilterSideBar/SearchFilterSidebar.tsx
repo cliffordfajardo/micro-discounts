@@ -10,13 +10,7 @@ type SearchFilterSideBarProps = {
   formName: SUPPORTED_FORM_IDS;
 };
 
-const Categories = [
-  "Design",
-  "Security",
-  "Finance",
-  "Software",
-  "Transportation",
-];
+const Categories = ["Design", "Security", "Finance", "Software", "Transportation"];
 
 const Tags = ["Free", "Student", "Teacher", "Freemium"];
 
@@ -78,13 +72,7 @@ const SearchFilterSideBar = ({ formName }: SearchFilterSideBarProps) => {
       </Text>
       <Checkbox.Group color="primary" css={{ marginLeft: "$4" }} value={[]}>
         {Tags.map((cat) => (
-          <Checkbox
-            key={cat}
-            form={formName}
-            name={cat}
-            value={cat}
-            size={"sm"}
-          >
+          <Checkbox key={cat} form={formName} name={cat} value={cat} size={"sm"}>
             {cat}
           </Checkbox>
         ))}
