@@ -4,23 +4,7 @@ type Props = {
   resources: ResourceTable[];
 }
 
-
-const StyledBadge = styled('span', {
-  borderRadius: "$sm",
-  border: "2px solid $gray200",
-  padding: "$xs",
-  padding: "$1",
-});
-
-const Badge = ({ title }: { title: string }) => {
-  return (
-    <StyledBadge>
-      <Text span weight={"light"} size={13} >#{title}</Text>
-    </StyledBadge>
-  )
-}
-
-const ResourceCardGroup = ({ resources }: Props) => {
+export default function ResourceCardGroup({ resources }: Props){
   return (
     <Grid.Container gap={2} justify="center">
       {resources.map((resource) => {
@@ -49,7 +33,7 @@ const ResourceCardGroup = ({ resources }: Props) => {
                 alignItems: "center",
               }}>
                 <div>
-                  <img src="/icons/canva-logo.png" alt="canva logo" height={50} width={50} />
+                  <img src={IconSvgPathMap[resource?.domain || ""] || faviconUrl(50, resource?.url|| "")} alt="canva logo" height={50} width={50} />
                 </div>
                 <div>
                   <Text span >
@@ -81,4 +65,38 @@ const ResourceCardGroup = ({ resources }: Props) => {
     </Grid.Container>
   );
 };
-export default ResourceCardGroup;
+
+const IconSvgPathMap: { [key: string]: string} = {
+  'canva.com': '/icons/canva-logo.svg',
+  'github.com': '/icons/github-logo.svg',
+  'edu.google.com': '/icons/google-logo.svg',
+  'apple.com': '/icons/apple-logo.svg',
+  'hulu.com': '/icons/hulu-logo.svg',
+  'att.com': '/icons/at-and-t-logo.svg',
+  'adidas.com': '/icons/adidas-logo.svg',
+  'microsoft.com': '/icons/microsoft-office-logo.svg',
+  'autodesk-logo.png': '/icons/autodesk-logo.svg',
+}
+
+export function faviconUrl(size: number, url: string): string {
+  try {
+    const domain = new URL(url).hostname;
+    return `https://www.google.com/s2/favicons?sz=${size}&domain=${domain}`;
+  } catch (err) {
+    return `./images/globe.svg`;
+  }
+}
+
+const StyledBadge = styled('span', {
+  borderRadius: "$sm",
+  border: "2px solid $gray200",
+  padding: "$xs",
+});
+
+const Badge = ({ title }: { title: string }) => {
+  return (
+    <StyledBadge>
+      <Text span weight={"light"} size={13} >#{title}</Text>
+    </StyledBadge>
+  )
+}
