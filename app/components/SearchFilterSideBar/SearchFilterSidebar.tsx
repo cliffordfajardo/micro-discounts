@@ -10,7 +10,16 @@ type SearchFilterSideBarProps = {
   formName: SUPPORTED_FORM_IDS;
 };
 
-const Categories = ["Design", "Security", "Finance", "Software", "Transportation"];
+const Categories = [
+  "Note taking",
+  "Design",
+  "Communication", 
+  "hardwares",
+  "mobile contract",
+  "shopping",
+  "web hosting",
+  "vpn",
+];
 const Tags = ["All", "Free", "Student", "Teacher", "Freemium"];
 
 // @ts-ignore : TODO: open PR/ISSUE at NextUI repo

@@ -4,7 +4,6 @@ import { Link, useLocation } from 'remix';
 
 export default function NavBar() {
   const location = useLocation();
-  console.log('location loc', location);
   const activeHomePage = location.pathname === '/';
   const activeAboutPage = location.pathname === '/about';
   return <Container

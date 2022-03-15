@@ -21,38 +21,40 @@ export type SUPPORTED_FORM_IDS =
 
 type filterDBItemsFunction = (
   data: ResourceTable[],
-  queryParams: { category: string; searchTerm: string; tags: string },
+  queryParams: { category: string[]; searchTerm: string; tags: string[] },
 ) => ResourceTable[];
 
 export const filterDBItems: filterDBItemsFunction = (
-  data: ResourceTable[] = [],
-  { category = "", searchTerm = "", tags = "" },
+  data = [],
+  { category = [], searchTerm = "", tags = [] },
 ) => {
   if (data.length <= 1) return data;
 
-  let result: ResourceTable[] = [];
-  const hasSearchTerm = searchTerm.length > 0;
+  let result: ResourceTable[] = data;
+  const hasSearchTerm = !!searchTerm;
   const hasCategories = category.length > 0;
   const hasTags = tags.length > 0;
-  const isDefaultSearch = !hasSearchTerm && (category === "all" || category === "") && tags === "";
+  const isDefaultSearch = !hasSearchTerm && !hasCategories && !hasTags;
 
   if (isDefaultSearch) {
-    return data;
+    return result;
   }
+  console.log('search term...', hasSearchTerm, searchTerm, tags, category, data.length);
   if (hasSearchTerm) {
     result = data.filter((item) => {
       return item.title?.toLocaleLowerCase().includes(searchTerm) || item.description?.includes(searchTerm);
     });
   }
+  console.log('resujl length...', result.length);
   if (hasCategories) {
     result = result.filter((item) => {
-      return (item.category || "").toLocaleLowerCase().includes(category);
+      return (item.category || []).some((cat) => category.includes(cat));
     });
   }
+
   if (hasTags) {
     result = result.filter((item) => {
-      // @ts-ignore
-      return (item?.tags || "").toLocaleLowerCase().includes(tags);
+      return (item.tags|| []).some((tag) => tags.includes(tag));
     });
   }
   return result;

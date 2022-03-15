@@ -2,7 +2,7 @@ export interface ResourceTable {
   id: number;
   title?: string;
   description?: string;
-  category?: string;
+  category?: string[];
   tags?: string[];
   domain?: string;
   url?: string;

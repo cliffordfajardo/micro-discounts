@@ -3,7 +3,6 @@ import { DiscountItems } from "./discount-items";
 import { supabase } from "~/utils";
 require("dotenv").config();
 
-console.log("process.ev", process.env);
 // TODO: create seeding function
 (async () => {
   let i = 0;
@@ -16,6 +15,5 @@ console.log("process.ev", process.env);
       url: discountItem.documentation,
       tfa: discountItem.tfa,
     });
-    console.log("r", r);
   });
 })();

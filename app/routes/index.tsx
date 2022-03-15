@@ -40,13 +40,15 @@ export const links = () => {
  */
 export const loader: LoaderFunction = async ({ request, params }) => {
   debug();
-  console.log("params-----", params);
   const url = new URL(request.url);
   const searchTermParam = url.searchParams.get("search")?.trim().toLocaleLowerCase() || "";
-  const categoryParam = url.searchParams.get("category")?.trim().toLocaleLowerCase() || "";
-  const tagsParam = url.searchParams.get("tags")?.trim().toLocaleLowerCase() || "";
+  const categoryParam = url.searchParams.getAll("category")
+    .map(cat => cat.toLowerCase())
+    .filter(cat => cat !== "all");
+    
+  const tagsParam = url.searchParams.getAll("tags").map(t => t.toLowerCase());
 
-  console.log('test', tagsParam);
+  console.info("url.searchParams", url.searchParams);
   const database = await getDb();
   const discountItems = (await database.fetchAllResources()).data || [];
   //TODO: optimize this. call upon an interval
@@ -67,9 +69,6 @@ export const loader: LoaderFunction = async ({ request, params }) => {
 export default function HomePage() {
   //useParams() https://remix.run/docs/en/v1/api/conventions#dynamic-route-parameters
   const data = useLoaderData<ResourceTable[]>();
-  const transition = useTransition();
-  console.log(`loader data-----------`, data);
-
   return (
     <DefaultLayout>
       <section style={{ marginTop: 60 }}>
