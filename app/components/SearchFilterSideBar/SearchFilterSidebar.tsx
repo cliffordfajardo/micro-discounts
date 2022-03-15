@@ -8,6 +8,12 @@ type SearchFilterSideBarProps = {
    * these fields to.
    */
   formName: SUPPORTED_FORM_IDS;
+
+  /**
+   * @description
+   * Allow programtically submit the form
+   */
+  submitForm: () => void
 };
 
 const Categories = [
@@ -20,7 +26,7 @@ const Categories = [
   "web hosting",
   "vpn",
 ];
-const Tags = ["All", "Free", "Student", "Teacher", "Freemium"];
+const Tags = ["Free", "Student", "Teacher", "Freemium"];
 
 // @ts-ignore : TODO: open PR/ISSUE at NextUI repo
 const LeftNavWrapper = styled("section", {
@@ -36,13 +42,13 @@ const LeftNavWrapper = styled("section", {
  * ....
  * Associate this with the form
  */
-const SearchFilterSideBar = ({ formName }: SearchFilterSideBarProps) => {
+const SearchFilterSideBar = ({ formName, submitForm }: SearchFilterSideBarProps) => {
   return (
     <LeftNavWrapper>
       <Text h4>Category</Text>
 
       <Grid.Container gap={1}>
-        <Radio.Group value="all">
+        <Radio.Group value="all" onClick={submitForm}>
           <Radio key="all" form={formName} name="category" value="all" size={"sm"} squared={true} checked={true}>
             All
           </Radio>

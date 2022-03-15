@@ -4,6 +4,7 @@ import { type SUPPORTED_FORM_IDS } from "~/utils";
 import { Button, Input, Loading, Text } from "@nextui-org/react";
 import { ResourceTable } from "~/types/dbTypes";
 import { ResourceCardGroup } from "../ResourceCardGroup";
+import { useRef } from "react";
 
 type SearchFormProps = {
   /**
@@ -24,13 +25,21 @@ type SearchFormProps = {
  * Renders the search input along with the search results.
  */
 const SearchForm = ({ searchResults = [] }: SearchFormProps) => {
+  const ref = useRef<HTMLFormElement>(null);
+  const submitForm = () => {
+    if (ref.current) {
+      console.log("submitted");
+      ref.current.dispatchEvent(new Event("submit", { cancelable: true, bubbles: true }));
+    }
+  };
+
   return (
     <>
-      <SearchFilterSideBar formName="search-form" />
+      <SearchFilterSideBar formName="search-form" submitForm={submitForm} />
 
       <section className="search-results" style={{ flex: 3 }}>
         <div className="container">
-          <Form id="search-form" className="search-form" method="get">
+          <Form id="search-form" ref={ref} className="search-form" method="get">
             <Input
               defaultValue=""
               placeholder="Search..."
@@ -40,7 +49,7 @@ const SearchForm = ({ searchResults = [] }: SearchFormProps) => {
               clearable
               size="lg"
               width="100%"
-              // contentRight={<Loading size="xs" />}
+            // contentRight={<Loading size="xs" />}
             />
           </Form>
           {searchResults.length > 0 ? (
