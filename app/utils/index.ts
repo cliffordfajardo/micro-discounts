@@ -39,13 +39,11 @@ export const filterDBItems: filterDBItemsFunction = (
   if (isDefaultSearch) {
     return result;
   }
-  console.log('search term...', hasSearchTerm, searchTerm, tags, category, data.length);
   if (hasSearchTerm) {
     result = data.filter((item) => {
       return item.title?.toLocaleLowerCase().includes(searchTerm) || item.description?.includes(searchTerm);
     });
   }
-  console.log('resujl length...', result.length);
   if (hasCategories) {
     result = result.filter((item) => {
       return (item.category || []).some((cat) => category.includes(cat));
