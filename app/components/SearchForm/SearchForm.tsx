@@ -4,7 +4,7 @@ import { type SUPPORTED_FORM_IDS } from "~/utils";
 import { Button, Input, Loading, Text } from "@nextui-org/react";
 import { ResourceTable } from "~/types/dbTypes";
 import { ResourceCardGroup } from "../ResourceCardGroup";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 type SearchFormProps = {
   /**
@@ -33,6 +33,8 @@ const SearchForm = ({ searchResults = [] }: SearchFormProps) => {
     }
   };
 
+  const [searchValue, setSearchValue] = useState("");
+
   return (
     <>
       <SearchFilterSideBar formName="search-form" submitForm={submitForm} />
@@ -41,7 +43,7 @@ const SearchForm = ({ searchResults = [] }: SearchFormProps) => {
         <div className="container">
           <Form id="search-form" ref={ref} className="search-form" method="get">
             <Input
-              defaultValue=""
+              value={searchValue}
               placeholder="Search..."
               autoComplete="off"
               name="search"
@@ -49,7 +51,7 @@ const SearchForm = ({ searchResults = [] }: SearchFormProps) => {
               clearable
               size="lg"
               width="100%"
-            // contentRight={<Loading size="xs" />}
+              onChange={(e) => setSearchValue(e.target.value)}
             />
           </Form>
           {searchResults.length > 0 ? (
