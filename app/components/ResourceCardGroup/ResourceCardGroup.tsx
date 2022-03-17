@@ -84,7 +84,10 @@ const IconSvgPathMap: { [key: string]: string } = {
   "att.com": "/icons/at-and-t-logo.svg",
   "adidas.com": "/icons/adidas-logo.svg",
   "microsoft.com": "/icons/microsoft-office-logo.svg",
-  "autodesk-logo.png": "/icons/autodesk-logo.svg",
+  "autodesk.com": "/icons/autodesk-logo.svg",
+  "mailgun.com": "/icons/mailgun-logo.png",
+  "get.tech": "/icons/gettech-logo.jpeg",
+  "chase.com": "/icons/chasebank-logo.png",
 };
 
 export function faviconUrl(size: number, url: string): string {

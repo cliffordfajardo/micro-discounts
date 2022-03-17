@@ -42,11 +42,10 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   const searchTermParam = url.searchParams.get("search")?.trim().toLocaleLowerCase() || "";
   const categoryParam = url.searchParams.getAll("category")
     .map(cat => cat.toLowerCase())
-    .filter(cat => cat !== "all");
+    .filter(cat => !["all", "on"].includes(cat));
 
   const tagsParam = url.searchParams.getAll("tags").map(t => t.toLowerCase());
 
-  console.info("url.searchParams", url.searchParams);
   const db = await getDbInstance();
   const discountItems = await db.fetchAllResourcesCached();
 

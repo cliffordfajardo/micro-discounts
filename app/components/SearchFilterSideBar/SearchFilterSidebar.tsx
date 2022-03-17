@@ -1,5 +1,6 @@
 import { Radio, styled, Text, Grid, Checkbox } from "@nextui-org/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 import { type SUPPORTED_FORM_IDS } from "~/utils";
 type SearchFilterSideBarProps = {
   /**
@@ -17,14 +18,15 @@ type SearchFilterSideBarProps = {
 };
 
 const Categories = [
-  "Note taking",
+  "Productivity",
   "Design",
-  "Communication", 
+  "Communication",
   "hardwares",
   "mobile contract",
   "shopping",
   "web hosting",
   "vpn",
+  "Developer tools",
 ];
 const Tags = ["Free", "Student", "Teacher", "Freemium"];
 
@@ -43,18 +45,33 @@ const LeftNavWrapper = styled("section", {
  * Associate this with the form
  */
 const SearchFilterSideBar = ({ formName, submitForm }: SearchFilterSideBarProps) => {
+  const [catSelected, setCatSelected] = useState("");
+  const location = useLocation();
+  useEffect(() => {
+    const allCat = new URLSearchParams(location.search).getAll("category");
+    const category = allCat.find(cat => cat && cat.toLowerCase() !== "on");
+    if (category) {
+      setCatSelected(category.toLowerCase());
+    }
+  }, [location.search])
   return (
     <LeftNavWrapper>
       <Text h4>Category</Text>
 
       <Grid.Container gap={1}>
-        <Radio.Group value="all" onClick={submitForm}>
-          <Radio key="all" form={formName} name="category" value="all" size={"sm"} squared={true} checked={true}>
+        <Radio.Group value={catSelected} onClick={(e) => {
+          submitForm();
+        }}
+          onChange={(e) => {
+            setCatSelected(e as string);
+          }}
+        >
+          <Radio key="all" form={formName} name="category" value="all" size={"sm"} squared={true}>
             All
           </Radio>
           {Categories.map((category) => {
             return (
-              <Radio key={category} form={formName} name="category" value={category} size={"sm"} squared={true}>
+              <Radio key={category} form={formName} name="category" value={category.toLowerCase()} size={"sm"} squared={true}>
                 {category}
               </Radio>
             );

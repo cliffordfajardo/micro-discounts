@@ -38,7 +38,7 @@ export default function NavBar() {
           </NextUiLink>
         </Link>
         <Spacer x={1} y={0} />
-        <Link to="/about" >
+        {/* <Link to="/about" >
           <NextUiLink css={{
             color: activeAboutPage ? '$primary' : "$text",
             fontWeight: activeAboutPage ? 'bold' : 'normal',
@@ -46,8 +46,8 @@ export default function NavBar() {
             About
           </NextUiLink>
         </Link>
-        <Spacer x={1} y={0} />
-        <Button css={{ padding: '$4', minWidth: "min-content", borderRadius: '$pill' }}>
+        <Spacer x={1} y={0} /> */}
+        <Button css={{ padding: '$6', minWidth: "min-content", borderRadius: '$pill' }}>
           Add a Resource
         </Button>
       </Row>

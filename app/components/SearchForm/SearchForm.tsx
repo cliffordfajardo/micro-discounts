@@ -1,7 +1,7 @@
-import { Form } from "remix";
+import { Form, useNavigate, useLocation } from "remix";
 import { SearchFilterSideBar } from "../SearchFilterSideBar";
 import { type SUPPORTED_FORM_IDS } from "~/utils";
-import { Button, Input, Loading, Text } from "@nextui-org/react";
+import { Button, Grid, Input, Loading, Text } from "@nextui-org/react";
 import { ResourceTable } from "~/types/dbTypes";
 import { ResourceCardGroup } from "../ResourceCardGroup";
 import { useRef, useState } from "react";
@@ -26,9 +26,9 @@ type SearchFormProps = {
  */
 const SearchForm = ({ searchResults = [] }: SearchFormProps) => {
   const ref = useRef<HTMLFormElement>(null);
+  const navigate = useNavigate();
   const submitForm = () => {
     if (ref.current) {
-      console.log("submitted");
       ref.current.dispatchEvent(new Event("submit", { cancelable: true, bubbles: true }));
     }
   };
@@ -54,13 +54,23 @@ const SearchForm = ({ searchResults = [] }: SearchFormProps) => {
               onChange={(e) => setSearchValue(e.target.value)}
             />
           </Form>
+          <Grid.Container justify="space-between" alignItems="center" css={{ marginTop: "$6" }}>
+            <Grid>
+              <Text span>{searchResults.length} resources</Text>
+            </Grid>
+            <Grid>
+              <Button light color="error" auto onClick={() => {
+                navigate('/', { replace: true});
+                ref.current?.reset();
+              }}>
+                Clear filter
+              </Button>
+            </Grid>
+          </Grid.Container>
           {searchResults.length > 0 ? (
-            <div>
-              <div style={{ marginTop: 20 }}>
-                <Text span>{searchResults.length} resources</Text>
-              </div>
+            <Grid>
               <ResourceCardGroup resources={searchResults} />
-            </div>
+            </Grid>
           ) : null}
         </div>
       </section>
