@@ -28,7 +28,7 @@ const Categories = [
   "vpn",
   "Developer tools",
 ];
-const Tags = ["Free", "Student", "Teacher", "Freemium"];
+const Tags = ["Students", "Teachers", "Free premium plan"];
 
 // @ts-ignore : TODO: open PR/ISSUE at NextUI repo
 const LeftNavWrapper = styled("section", {
@@ -46,12 +46,15 @@ const LeftNavWrapper = styled("section", {
  */
 const SearchFilterSideBar = ({ formName, submitForm }: SearchFilterSideBarProps) => {
   const [catSelected, setCatSelected] = useState("");
+  const [tagSelected, setTagSelected] = useState("");
   const location = useLocation();
   useEffect(() => {
     const allCat = new URLSearchParams(location.search).getAll("category");
     const category = allCat.find(cat => cat && cat.toLowerCase() !== "on");
     if (category) {
       setCatSelected(category.toLowerCase());
+    } else {
+      setCatSelected('');
     }
   }, [location.search])
   return (
@@ -83,13 +86,20 @@ const SearchFilterSideBar = ({ formName, submitForm }: SearchFilterSideBarProps)
         Tags
       </Text>
 
-      <Checkbox.Group color="primary" css={{ marginLeft: "$4" }} value={["All"]}>
-        {Tags.map((category) => (
-          <Checkbox key={category} form={formName} name="category" value={category} size={"sm"}>
-            {category}
-          </Checkbox>
+      <Radio.Group color="primary" css={{ marginLeft: "$4" }} value={tagSelected} onClick={() => {
+        submitForm();
+      }}
+        onChange={(e) => {
+          setTagSelected(e as string)
+        }}>
+        {Tags.map((tag) => (
+          <Radio key={tag} form={formName} name="tags" value={tag} size={"sm"} onClick={(e) => {
+            submitForm();
+          }}>
+            {tag}
+          </Radio>
         ))}
-      </Checkbox.Group>
+      </Radio.Group>
     </LeftNavWrapper>
   );
 };
