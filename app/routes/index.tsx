@@ -1,10 +1,10 @@
-import {  Text } from "@nextui-org/react";
+import { Text } from "@nextui-org/react";
 import { json, useLoaderData, useTransition, type LoaderFunction } from "remix";
 import { NavBar } from "~/layouts/NavBar";
 import { SearchForm } from "~/components/SearchForm";
 import homepageCSS from "~/styles/index.css";
 import { ResourceTable } from "~/types/dbTypes";
-import { debug, getDb, filterDBItems } from "~/utils";
+import { debug, getDb, filterDBItems, getDbInstance, DB_REFRESH_INTERVAL } from "~/utils";
 import { DefaultLayout } from "~/layouts/DefaultLayout";
 
 /**
@@ -27,8 +27,6 @@ export const links = () => {
   ];
 };
 
-// const discountItems = (await fetchAllResources()).data || [];
-
 /**
  * @description
  * Fetch the discount items on the server.
@@ -45,13 +43,13 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   const categoryParam = url.searchParams.getAll("category")
     .map(cat => cat.toLowerCase())
     .filter(cat => cat !== "all");
-    
+
   const tagsParam = url.searchParams.getAll("tags").map(t => t.toLowerCase());
 
   console.info("url.searchParams", url.searchParams);
-  const database = await getDb();
-  const discountItems = (await database.fetchAllResources()).data || [];
-  //TODO: optimize this. call upon an interval
+  const db = await getDbInstance();
+  const discountItems = await db.fetchAllResourcesCached();
+
   const items = filterDBItems(discountItems, { searchTerm: searchTermParam, category: categoryParam, tags: tagsParam });
 
   return json(items, {
@@ -73,7 +71,7 @@ export default function HomePage() {
     <DefaultLayout>
       <section style={{ marginTop: 60 }}>
         <Text span size={30}>
-        The world's largest directory of discounts and resources for students and teachers.
+          The world's largest directory of discounts and resources for students and teachers.
         </Text>
       </section>
 

@@ -35,7 +35,6 @@ export const DB_TYPE = determineDbType();
  * connection details in the ./database.json
  */
 export async function getDb(): Promise<SQLDatabase> {
-  console.log("USING THE FOLLOWING DB: supabase");
   const supabaseDB = new SupabaseDB();
   await supabaseDB.setup();
   return supabaseDB;
@@ -50,3 +49,13 @@ export async function getDb(): Promise<SQLDatabase> {
   //   // return sqliteDB;
   // }
 }
+
+let db: SQLDatabase | null = null;
+export async function getDbInstance(): Promise<SQLDatabase> {
+  if (!db) {
+    db = await getDb();
+  }
+  return db;
+}
+
+
