@@ -1,7 +1,7 @@
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch, useLocation } from "remix";
 import { createTheme, NextUIProvider } from "@nextui-org/react";
 import IndexCss from '~/styles/index.css';
-import gtag from '~/utils/gtag';
+import { GA_TRACKING_ID, pageview} from '~/utils/gtag';
 import { useEffect } from "react";
 
 /**
@@ -21,7 +21,7 @@ function Document({ children, title = "App title" }: { children: React.ReactNode
   const location = useLocation();
 
   useEffect(() => {
-    gtag.pageview(location.pathname);
+    pageview(location.pathname);
   }, [location]);
 
   return (
@@ -44,7 +44,7 @@ function Document({ children, title = "App title" }: { children: React.ReactNode
       </body>
       <script
         async
-        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
       />
       <script
         async
@@ -54,7 +54,7 @@ function Document({ children, title = "App title" }: { children: React.ReactNode
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${gtag.GA_TRACKING_ID}', {
+            gtag('config', '${GA_TRACKING_ID}', {
               page_path: window.location.pathname,
             });
           `
