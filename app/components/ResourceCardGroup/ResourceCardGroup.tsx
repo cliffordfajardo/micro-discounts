@@ -22,7 +22,7 @@ export default function ResourceCardGroup({ resources }: Props) {
                 event({
                   action: "click card",
                   label: "title",
-                  value: resource.title || resource.domain || "",
+                  value: resource.domain || resource.title || "",
                 })
                 window.open(resource.url, "_blank");
               }}

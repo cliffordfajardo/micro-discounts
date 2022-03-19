@@ -24,6 +24,7 @@ export const event = ({
   label,
   value
 }: Record<string, string>) => {
+  console.log('logging event event', { action, category, label, value });
   window.gtag("event", action, {
     event_category: category,
     event_label: label,
