@@ -9,7 +9,7 @@ export default function ResourceCardGroup({ resources }: Props) {
     <Grid.Container gap={2} justify="center">
       {resources.map((resource) => {
         return (
-          <Grid key={resource.id} xs={6} md={12}>
+          <Grid key={resource.id} xs={12} md={6}>
             <Card
               css={{
                 paddingTop: "$3",
