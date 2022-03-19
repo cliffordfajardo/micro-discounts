@@ -47,7 +47,9 @@ export default function NavBar() {
           </NextUiLink>
         </Link>
         <Spacer x={1} y={0} /> */}
-        <Button css={{ padding: '$6', minWidth: "min-content", borderRadius: '$pill' }}>
+        <Button css={{ padding: '$6', minWidth: "min-content", borderRadius: '$pill' }} onClick={() => {
+          window.open("https://6pyrobzjqsd.typeform.com/to/FRXFgGBb", "_blank");
+        }}>
           Add a Resource
         </Button>
       </Row>

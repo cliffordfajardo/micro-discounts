@@ -11,6 +11,7 @@
     "lint": "eslint --cache --ext .tsx,.ts,.js,.jsx,.md  --fix",
     "pretty": "prettier --write . --e",
     "seed-db": "node -r ts-node/register ./app/data/convertDataToSupabase.ts",
+    "seed-db-02": "node -r ts-node/register ./app/data/upload-discounts-02.ts",
     "test": "echo RUNNING TEST...TODO need to write tests",
     "prepare": "husky install"
   },

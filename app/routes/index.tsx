@@ -70,7 +70,7 @@ export default function HomePage() {
     <DefaultLayout>
       <section style={{ marginTop: 60 }}>
         <Text span size={30}>
-          The world's largest directory of discounts and resources for students and teachers.
+          The world's largest directory of tech discounts and resources for students and teachers.
         </Text>
       </section>
 

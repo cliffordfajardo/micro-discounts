@@ -15,7 +15,7 @@ const DB_REFRESH_INTERVAL_MS = (process.env.DB_REFRESH_INTERVAL_MS ? parseInt(pr
 
 export class SupabaseDB extends SQLDatabase {
   // @ts-ignore
-  private db: SupabaseClient;
+  public db: SupabaseClient;
 
   private resourceTableCache: ResourceTable[] | null = null;
 

@@ -1,0 +1,368 @@
+[
+  {
+    "id":93,
+    "title":"Spirit",
+    "description":"The ultimate tool to create high-quality animations directly in the browser",
+    "url":"https://spiritapp.io/pricing",
+    "domain":"spiritapp.io",
+    "category":[
+      "design"
+    ],
+    "tags":[
+      "students", "teachers","50% off"
+    ]
+  },
+  {
+    "id":94,
+    "title":"Buninux",
+    "description":"And 50% off on all buninux.com products with code: roboedu",
+    "url":"https://buninux.com/",
+    "domain":"buninux.com",
+    "category":[
+      "learn", "design"
+    ],
+    "tags":[
+
+    ]
+  },
+  {
+    "id":95,
+    "title":"Slice",
+    "description":"Learn a modular design system shaped from separate libraries to unify design with a consistent set of rules",
+    "url":"https://slice.design/web",
+    "domain":"slice.design",
+    "category":[
+      "learn", "design"
+    ],
+    "tags":[
+      "students", "teachers", "50% off"
+    ]
+  },
+  {
+    "id":96,
+    "title":"Drama",
+    "description":"Quick mobile prototyping and design tools for designers and developers",
+    "url":"https://www.drama.app/",
+    "domain":"www.drama.app",
+    "category":[
+      "design"
+    ],
+    "tags":[
+      "students", "teachers", "free for 1 year"
+    ]
+  },
+  {
+    "id":97,
+    "title":"Powtoon",
+    "description":"Tools to creat and share beautiful customized video. Start with $4/month(regularly $19/month)",
+    "url":"https://www.powtoon.com/premium/",
+    "domain":"www.powtoon.com",
+    "category":[
+      "design"
+    ],
+    "tags":[
+      "students", "teachers", "$4/month"
+    ]
+  },
+  {
+    "id":98,
+    "title":"Landbot",
+    "description":"No-Code Chatbot Builder",
+    "url":"https://landbot.io/u/H-90232-Q7D6JITVZJ93L0ZM/index.html",
+    "domain":"landbot.io",
+    "category":[
+      "other"
+    ],
+    "tags":[
+      "students", "teachers" 
+    ]
+  },
+  {
+    "id":99,
+    "title":"Pixelsnap",
+    "description":"Tool for designer to measure anything on your screen. Onetime purchase with 30% off ",
+    "url":"https://getpixelsnap.com/buy/#discounts",
+    "domain":"getpixelsnap.com",
+    "category":[
+      "design"
+    ],
+    "tags":[
+      "students", "teachers", "30% off"
+    ]
+  },
+  {
+    "id":100,
+    "title":"Cleanshot",
+    "description":"Capture your Mac’s screen like a pro. Create gif, capture video, scrolled image, upload it to the cloud and more",
+    "url":"https://getcleanshot.com/buy/#discounts",
+    "domain":"getcleanshot.com",
+    "category":[
+      "productivity"
+    ],
+    "tags":[
+      "students", "teachers", "30% off"
+    ]
+  },
+  {
+    "id":101,
+    "title":"Weglot",
+    "description":"Weglot allows you to make your website multilingual in minutes and to manage all your translations effortlessly.",
+    "url":"https://weglot.com/github-students/",
+    "domain":"weglot.com",
+    "category":[
+      "other"
+    ],
+    "tags":[
+      "students"
+    ]
+  },
+  {
+    "id":102,
+    "title":"Voiceflow",
+    "description":"Voiceflow is the industry leading conversation design tool for teams to design, prototype and launch voice & chat assistants. Start with $10/month(regularly $20/month)",
+    "url":"https://www.voiceflow.com/students",
+    "domain":"www.voiceflow.com",
+    "category":[
+      "Developer Tools"
+    ],
+    "tags":[
+      "students", "$10/month"
+    ]
+  },
+  {
+    "id":104,
+    "title":"Trello",
+    "description":"Collaborate, manage projects, and reach new productivity peaks. From high rises to the home office, the way your team works is unique—accomplish it all with Trello.",
+    "url":"https://help.trello.com/article/1133-educational-discount",
+    "domain":"help.trello.com",
+    "category":[
+      "productivity", "project planning"
+    ],
+    "tags":[
+      "students", "teachers", "30% off"
+    ]
+  },
+  {
+    "id":106,
+    "title":"UX Pin",
+    "description":"No-code website designing platform",
+    "url":"https://www.uxpin.com/pricing",
+    "domain":"www.uxpin.com",
+    "category":[
+      "design"
+    ],
+    "tags":[
+      "students",
+      "free for students"
+    ]
+  },
+  {
+    "id":107,
+    "title":"Cinema 4D",
+    "description":"3D computer animation, modeling, simulation, and rendering software",
+    "url":"https://www.maxon.net/en-us/learn/educational-licenses/students-and-instructors/",
+    "domain":"www.maxon.net",
+    "category":[
+      "design"
+    ],
+    "tags":[
+      "students", "teachers", "6 month free"
+    ]
+  },
+  {
+    "id":111,
+    "title":"Loom",
+    "description":"Record quick videos of your screen and cam. An essential tool for hybrid workplaces.",
+    "url":"https://support.loom.com/hc/en-us/articles/360006579637-Loom-for-Education-Free-for-Teachers-and-Educators",
+    "domain":"loom.com",
+    "category":[
+      "productivity"
+    ],
+    "tags":[
+      "students", "teachers",
+      "free premium plan"
+    ]
+  },
+  {
+    "id":112,
+    "title":"Wideo",
+    "description":"Create animated videos and presentations in minutes. Start with $4/month(regularly 19/month) when paid annually",
+    "url":"https://wideo.co/pricing_en_edu/",
+    "domain":"wideo.co",
+    "category":[
+      "design"
+    ],
+    "tags":[
+      "students", "teachers", "$4/month"
+    ]
+  },
+  {
+    "id":113,
+    "title":"InVision",
+    "description":"Create rich, interactive prototypes. Import from Sketch, then gather feedback from any device.",
+    "url":"https://www.invisionapp.com/education",
+    "domain":"www.invisionapp.com",
+    "category":[
+      "design", "Developer Tools"
+    ],
+    "tags":[
+      "students", "teachers"
+    ]
+  },
+  {
+    "id":114,
+    "title":"Proto.io",
+    "description":"50% off a discount for students",
+    "url":"https://proto.io/en/pricing/",
+    "domain":"proto.io",
+    "category":[
+      "design", "Developer Tools"
+    ],
+    "tags":[
+      "students", "teachers", "50% off"
+    ]
+  },
+  {
+    "id":115,
+    "title":"TermsFeed",
+    "description":"create ear Trusted legal agreements for web, mobile iOS & Android, desktop apps. For ecommerce, SaaS, apps, Facebook apps and more",
+    "url":"https://www.termsfeed.com/discount/?discount_code=f6s",
+    "domain":"www.termsfeed.com",
+    "category":[
+      "other"
+    ],
+    "tags":[
+      "students", "teachers", "50% off"
+    ]
+  },
+  {
+    "id":116,
+    "title":"Iconscout",
+    "description":"Over 4.1 Million+ Design Assets",
+    "url":"https://iconscout.com/special-scout-plan-for-startup-students-hackathon-ngo",
+    "domain":"iconscout.com",
+    "category":[
+      "design"
+    ],
+    "tags":[
+      "students", "teachers"
+    ]
+  },
+  {
+    "id":117,
+    "title":"Sketch",
+    "description":"Sketch gives you all the tools you need for a truly collaborative design process. From early ideas to pixel-perfect artwork, playable prototypes and developer handoff",
+    "url":"https://www.sketch.com/store/edu/",
+    "domain":"sketch.com",
+    "category":[
+      "design", "developer tools"
+    ],
+    "tags":[
+      "students", "teachers", "50% off"
+    ]
+  },
+  {
+    "id":120,
+    "title":"Moo",
+    "description":"Moo premium Business Cards, Postcards, Bottles, and more",
+    "url":"https://www.moo.com/us/students-discount",
+    "domain":"www.moo.com",
+    "category":[
+      "other"
+    ],
+    "tags":[
+      "students", "teachers", "15% off"
+    ]
+  },
+  {
+    "id":122,
+    "title":"Survey Monkey",
+    "description":"Survey platform. Starat with $23/month(regularly $32/month)",
+    "url":"https://www.surveymonkey.co.uk/pricing/individual/?e=edu_faq&ut_source=pricing-summary",
+    "domain":"www.surveymonkey.co.uk",
+    "category":[
+      "marketing"
+    ],
+    "tags":[
+      "students", "teachers", "$23/month"
+    ]
+  },
+  {
+    "id":123,
+    "title":"Axure",
+    "description":"No code UX platform. Create UX prototypes with unlimited combinations of event triggers, conditions, and actions to truly explore digital experiences.",
+    "url":"https://www.axure.com/edu",
+    "domain":"www.axure.com",
+    "category":[
+      "design", "developer tools"
+    ],
+    "tags":[
+      "students", "teachers", "free"
+    ]
+  },
+  {
+    "id":124,
+    "title":"Squarespace",
+    "description":"Create a platform e.g blog, websits to sell anything",
+    "url":"https://www.squarespace.com/students/#discount-block",
+    "domain":"squarespace.com",
+    "category":[
+      "ecommerce", "web hosting"
+    ],
+    "tags":[
+      "students", "50% off"
+    ]
+  },
+  {
+    "id":125,
+    "title":"Marvel",
+    "description":"Rapid prototyping, testing and handoff for modern design teams. 70% at just $48/year(regularly $144/year)",
+    "url":"https://help.marvelapp.com/hc/en-us/articles/360003458197-Student-teacher-and-education-discounts",
+    "domain":"help.marvelapp.com",
+    "category":[
+      "design", "developer tools"
+    ],
+    "tags":[
+      "70% off", "students", "teachers"
+    ]
+  },
+  {
+    "id":128,
+    "title":"Framer",
+    "description":"Design stunning interactive products with your team",
+    "url":"https://framer.com/forms/education/",
+    "domain":"framer.com",
+    "category":[
+      "design", "developer tools"
+    ],
+    "tags":[
+      "students", "teachers", "free"
+    ]
+  },
+  {
+    "id":129,
+    "title":"Amazing Marvin",
+    "description":"Marvin incorporates principles from behavioral psychology to help you beat procrastination, feel in control and finish your to-do list",
+    "url":"https://www.amazingmarvin.com/",
+    "domain":"www.amazingmarvin.com",
+    "category":[
+      "productivity"
+    ],
+    "tags":[
+      "students", "teachers", "50% off"
+    ]
+  },
+  {
+    "id":130,
+    "title":"PDF Expert",
+    "description":"Fast, robust and beautiful PDF editor Read, annotate and edit PDFs, change text and images. Fill forms and sign contracts like never before. Start for free. 50% for premium plan",
+    "url":"https://pdfexpert.com/back-to-school",
+    "domain":"pdfexpert.com",
+    "category":[
+      "productivity"
+    ],
+    "tags":[
+      "students", "teachers", "50% off"
+    ]
+  }
+]
