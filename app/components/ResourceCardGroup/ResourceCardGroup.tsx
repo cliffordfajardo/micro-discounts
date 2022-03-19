@@ -88,6 +88,11 @@ const IconSvgPathMap: { [key: string]: string } = {
   "mailgun.com": "/icons/mailgun-logo.png",
   "get.tech": "/icons/gettech-logo.jpeg",
   "chase.com": "/icons/chasebank-logo.png",
+  "sketch.com": "https://www.sketch.com/images/metadata/icon-96.png",
+  "invisionapp.com": "https://rosenfeldmedia.com/designopssummit2017/wp-content/uploads/sites/6/2017/06/invision-logo-pink.jpg",
+  "gitpod.io": "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/vxjxtilpe1beylhwlpof",
+  "sentry.io": "https://seeklogo.com/images/S/sentry-logo-36928B74C1-seeklogo.com.png",
+  "coder.com": "/icons/coder-logo.png",
 };
 
 export function faviconUrl(size: number, url: string): string {

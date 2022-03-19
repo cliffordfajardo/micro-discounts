@@ -20,15 +20,17 @@ type SearchFilterSideBarProps = {
 const Categories = [
   "Productivity",
   "Design",
+  "Developer tools",
+  "Learn",
   "Communication",
   "hardwares",
   "mobile contract",
   "shopping",
   "web hosting",
   "vpn",
-  "Developer tools",
+  "Fashion"
 ];
-const Tags = ["Students", "Teachers", "Free premium plan"];
+const Tags = ["Students", "Teachers", "Free premium plan", "Free"];
 
 // @ts-ignore : TODO: open PR/ISSUE at NextUI repo
 const LeftNavWrapper = styled("section", {
