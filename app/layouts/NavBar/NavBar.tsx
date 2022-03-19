@@ -5,7 +5,7 @@ import { Link, useLocation } from 'remix';
 import { SearchFilterSideBar } from '~/components/SearchFilterSideBar';
 import useMediaQuery from '~/utils/useMediaQuery';
 
-export default function NavBar() {
+export default function NavBar({ submitForm }: { submitForm: () => void; }) {
   const location = useLocation();
   const activeHomePage = location.pathname === '/';
   const activeAboutPage = location.pathname === '/about';
@@ -79,14 +79,14 @@ export default function NavBar() {
           isMobile && setBodyHidden(!expanded);
         }}>open</MenuToggleBtn>
 
-        <MobileNav opened={expanded} />
+        <MobileNav opened={expanded} submitForm={submitForm} />
       </Row>
 
     </Col>}
   </Container>
 }
 
-const MobileNav = ({ opened }: { opened: boolean }) => {
+const MobileNav = ({ opened, submitForm }: { opened: boolean; submitForm: () => void; }) => {
   console.log("mobile nav", opened);
   const portal = usePortal('mobile-nav');
 
@@ -97,7 +97,7 @@ const MobileNav = ({ opened }: { opened: boolean }) => {
     <MobileNavWrapper style={opened ? { display: 'flex', flexDirection: 'column' } : {}} css={{
       padding: '$10',
     }}>
-      <SearchFilterSideBar formName="search-form" submitForm={() => { }} />
+      <SearchFilterSideBar formName="search-form" submitForm={submitForm} />
     </MobileNavWrapper>
   </NavContainer>, portal) : null
 }

@@ -19,21 +19,19 @@ type SearchFormProps = {
    * these fields to.
    */
   formName: SUPPORTED_FORM_IDS;
+
+  formRef: React.RefObject<HTMLFormElement> | null;
+
+  submitForm: () => void;
 };
 
 /**
  * @description
  * Renders the search input along with the search results.
  */
-const SearchForm = ({ searchResults = [] }: SearchFormProps) => {
-  const ref = useRef<HTMLFormElement>(null);
+const SearchForm = ({ searchResults = [], formRef, submitForm }: SearchFormProps) => {
   const navigate = useNavigate();
   const isMobile = useMediaQuery('(max-width: 960px)');
-  const submitForm = () => {
-    if (ref.current) {
-      ref.current.dispatchEvent(new Event("submit", { cancelable: true, bubbles: true }));
-    }
-  };
 
   const [searchValue, setSearchValue] = useState("");
 
@@ -56,7 +54,7 @@ const SearchForm = ({ searchResults = [] }: SearchFormProps) => {
       >
         <div className="container">
           <div>
-            <Form id="search-form" ref={ref} className="search-form" method="get">
+            <Form id="search-form" ref={formRef} className="search-form" method="get">
               <Input
                 value={searchValue}
                 placeholder="Search..."
@@ -77,7 +75,7 @@ const SearchForm = ({ searchResults = [] }: SearchFormProps) => {
             <Grid>
               <Button light color="error" auto onClick={() => {
                 navigate('/', { replace: true });
-                ref.current?.reset();
+                formRef?.current?.reset();
               }}>
                 Clear filter
               </Button>

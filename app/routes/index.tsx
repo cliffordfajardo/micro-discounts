@@ -6,6 +6,7 @@ import homepageCSS from "~/styles/index.css";
 import { ResourceTable } from "~/types/dbTypes";
 import { debug, getDb, filterDBItems, getDbInstance, DB_REFRESH_INTERVAL } from "~/utils";
 import { DefaultLayout } from "~/layouts/DefaultLayout";
+import { useRef } from "react";
 
 /**
  * @description
@@ -60,8 +61,14 @@ export const loader: LoaderFunction = async ({ request, params }) => {
 export default function HomePage() {
   //useParams() https://remix.run/docs/en/v1/api/conventions#dynamic-route-parameters
   const data = useLoaderData<ResourceTable[]>();
+  const formRef = useRef<HTMLFormElement>(null);
+  const submitForm = () => {
+    if (formRef.current) {
+      formRef.current.dispatchEvent(new Event("submit", { cancelable: true, bubbles: true }));
+    }
+  }
   return (
-    <DefaultLayout>
+    <DefaultLayout submitForm={submitForm}>
       <section style={{ marginTop: 60 }}>
         <Text span size={30}>
           The world's largest directory of tech discounts and resources for students and teachers.
@@ -69,7 +76,7 @@ export default function HomePage() {
       </section>
 
       <main style={{ marginTop: 30 }}>
-        <SearchForm searchResults={data} formName="search-form" />
+        <SearchForm searchResults={data} formName="search-form" formRef={formRef} submitForm={submitForm}/>
       </main>
     </DefaultLayout>
   );
