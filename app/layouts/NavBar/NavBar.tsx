@@ -134,7 +134,7 @@ const MobileNavWrapper = styled('div', {
   minHeight: '100%',
   transition: 'all 0.2 ease 50ms',
   background: 'rgba(255, 255, 255, 0.8)',
-  backdropFilter: 'saturate(180%) blur(5px)',
+  backdropFilter: 'saturate(180%) blur(10px)',
 })
 
 const MenuToggleBtn = ({ onClick }: { onClick: () => void }) => {
