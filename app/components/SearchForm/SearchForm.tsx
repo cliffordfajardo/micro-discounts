@@ -5,6 +5,7 @@ import { Button, Grid, Input, Loading, Text } from "@nextui-org/react";
 import { ResourceTable } from "~/types/dbTypes";
 import { ResourceCardGroup } from "../ResourceCardGroup";
 import { useRef, useState } from "react";
+import useMediaQuery from "~/utils/useMediaQuery";
 
 type SearchFormProps = {
   /**
@@ -27,6 +28,7 @@ type SearchFormProps = {
 const SearchForm = ({ searchResults = [] }: SearchFormProps) => {
   const ref = useRef<HTMLFormElement>(null);
   const navigate = useNavigate();
+  const isMobile = useMediaQuery('(max-width: 960px)');
   const submitForm = () => {
     if (ref.current) {
       ref.current.dispatchEvent(new Event("submit", { cancelable: true, bubbles: true }));
@@ -37,9 +39,20 @@ const SearchForm = ({ searchResults = [] }: SearchFormProps) => {
 
   return (
     <>
-      <SearchFilterSideBar formName="search-form" submitForm={submitForm} />
+      {
+        !isMobile && <section style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 2,
+          flex: 2,
+        }}>
+          <SearchFilterSideBar formName="search-form" submitForm={submitForm} />
+        </section>
+      }
 
-      <section className="search-results" style={{ flex: 3 }}>
+      <section className="search-results"
+        style={{ flex: 5 }}
+      >
         <div className="container">
           <Form id="search-form" ref={ref} className="search-form" method="get">
             <Input
@@ -60,7 +73,7 @@ const SearchForm = ({ searchResults = [] }: SearchFormProps) => {
             </Grid>
             <Grid>
               <Button light color="error" auto onClick={() => {
-                navigate('/', { replace: true});
+                navigate('/', { replace: true });
                 ref.current?.reset();
               }}>
                 Clear filter

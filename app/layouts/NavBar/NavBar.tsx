@@ -1,11 +1,24 @@
-import { Button, Col, Container, Row, Spacer, Link as NextUiLink, Text } from '@nextui-org/react';
-import React from 'react';
+import { Button, Col, Container, Row, Spacer, Link as NextUiLink, Text, usePortal } from '@nextui-org/react';
+import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'remix';
+import { SearchFilterSideBar } from '~/components/SearchFilterSideBar';
+import useMediaQuery from '~/utils/useMediaQuery';
 
 export default function NavBar() {
   const location = useLocation();
   const activeHomePage = location.pathname === '/';
   const activeAboutPage = location.pathname === '/about';
+  const isMobile = useMediaQuery('(max-width: 960px)');
+  const [expanded, setExpanded] = useState(false);
+  useEffect(() => {
+    if (!isMobile) {
+      setExpanded(false);
+      // setBodyHidden(false);
+    }
+  }, [isMobile]);
+
+
   return <Container
     lg={true}
     as="nav"
@@ -21,11 +34,11 @@ export default function NavBar() {
     <Col>
       <Link to="/" color='$text'>
         <Text h3 weight={"extrabold"}>
-         MicroDiscount
+          MicroDiscount
         </Text>
       </Link>
     </Col>
-    <Col>
+    {!isMobile && <Col>
       <Row justify="flex-end" align='center' gap={3}>
         <Spacer x={1} y={0} />
         <Link to="/" >
@@ -53,6 +66,16 @@ export default function NavBar() {
           Add a Resource
         </Button>
       </Row>
-    </Col>
+    </Col>}
+    {isMobile && <Col><MobileNav opened={true}/></Col>}
   </Container>
+}
+
+const MobileNav = ({ opened }: { opened: boolean }) => {
+  console.log("mobile nav", opened);
+  const portal = usePortal('mobile-nav');
+
+  return portal ? createPortal(<>
+    <SearchFilterSideBar formName="search-form" submitForm={() => { }} />
+  </>, portal) : null
 }

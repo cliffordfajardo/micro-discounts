@@ -32,14 +32,7 @@ const Categories = [
 ];
 const Tags = ["Students", "Teachers", "Free premium plan", "Free"];
 
-// @ts-ignore : TODO: open PR/ISSUE at NextUI repo
-const LeftNavWrapper = styled("section", {
-  display: "flex",
-  flexDirection: "column",
-  gap: 2,
-  width: "20%",
-  // fontSize: "$xs"
-});
+
 
 /**
  * @description
@@ -69,7 +62,7 @@ const SearchFilterSideBar = ({ formName, submitForm }: SearchFilterSideBarProps)
     }
   }, [location.search]);
   return (
-    <LeftNavWrapper>
+    <>
       <Text h4>Category</Text>
 
       <Grid.Container gap={1}>
@@ -123,7 +116,7 @@ const SearchFilterSideBar = ({ formName, submitForm }: SearchFilterSideBarProps)
           </Radio>
         ))}
       </Radio.Group>
-    </LeftNavWrapper>
+    </>
   );
 };
 export default SearchFilterSideBar;
