@@ -1,11 +1,14 @@
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch } from "remix";
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch, useLocation } from "remix";
 import { createTheme, NextUIProvider } from "@nextui-org/react";
 import IndexCss from '~/styles/index.css';
+import gtag from '~/utils/gtag';
+import { useEffect } from "react";
+
 /**
  * @description
  * <link> tags that will be embedded in the <head> for this page.
  */
- export const links = () => {
+export const links = () => {
   return [
     {
       rel: "stylesheet",
@@ -14,11 +17,13 @@ import IndexCss from '~/styles/index.css';
   ];
 };
 
-// export const meta: MetaFunction = () => {
-//   return { title: "New Remix App" };
-// };
-
 function Document({ children, title = "App title" }: { children: React.ReactNode; title?: string }) {
+  const location = useLocation();
+
+  useEffect(() => {
+    gtag.pageview(location.pathname);
+  }, [location]);
+
   return (
     <html lang="en">
       <head>
@@ -37,6 +42,24 @@ function Document({ children, title = "App title" }: { children: React.ReactNode
         <Scripts />
         <LiveReload />
       </body>
+      <script
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+      />
+      <script
+        async
+        id="gtag-init"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gtag.GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `
+        }}
+      />
     </html>
   );
 }

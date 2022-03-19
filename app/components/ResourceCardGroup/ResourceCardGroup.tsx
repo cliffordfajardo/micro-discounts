@@ -1,5 +1,6 @@
 import { Card, Grid, Text, useTheme, styled, Button, Image } from "@nextui-org/react";
 import type { ResourceTable } from "~/types/dbTypes";
+import { event } from '~/utils/gtag';
 type Props = {
   resources: ResourceTable[];
 };
@@ -18,6 +19,11 @@ export default function ResourceCardGroup({ resources }: Props) {
               }}
               hoverable
               onClick={() => {
+                event({
+                  action: "click card",
+                  label: "title",
+                  value: resource.title || resource.domain || "",
+                })
                 window.open(resource.url, "_blank");
               }}
             // clickable
