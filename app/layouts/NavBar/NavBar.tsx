@@ -1,4 +1,4 @@
-import { Button, Col, Container, Row, Spacer, Link as NextUiLink, Text, usePortal, styled, useBodyScroll } from '@nextui-org/react';
+import { Button, Col, Container, Row, Spacer, Link as NextUiLink, Text, usePortal, styled, useBodyScroll, Grid } from '@nextui-org/react';
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'remix';
@@ -65,11 +65,7 @@ export default function NavBar({ submitForm }: { submitForm: () => void; }) {
           </NextUiLink>
         </Link>
         <Spacer x={1} y={0} /> */}
-        <Button css={{ padding: '$6', minWidth: "min-content", borderRadius: '$pill' }} onClick={() => {
-          window.open("https://6pyrobzjqsd.typeform.com/to/FRXFgGBb", "_blank");
-        }}>
-          Add a Resource
-        </Button>
+        <AddResourceBtn />
       </Row>
     </Col>}
     {isMobile && <Col >
@@ -86,6 +82,14 @@ export default function NavBar({ submitForm }: { submitForm: () => void; }) {
   </Container>
 }
 
+const AddResourceBtn = () => {
+  return <Button css={{ padding: '$6', minWidth: "min-content", borderRadius: '$pill' }} onClick={() => {
+    window.open("https://6pyrobzjqsd.typeform.com/to/FRXFgGBb", "_blank");
+  }}>
+    Add a Resource
+  </Button>
+}
+
 const MobileNav = ({ opened, submitForm }: { opened: boolean; submitForm: () => void; }) => {
   console.log("mobile nav", opened);
   const portal = usePortal('mobile-nav');
@@ -98,6 +102,9 @@ const MobileNav = ({ opened, submitForm }: { opened: boolean; submitForm: () => 
       padding: '$10',
     }}>
       <SearchFilterSideBar formName="search-form" submitForm={submitForm} />
+      <Grid css={{marginTop: '$8'}}>
+        <AddResourceBtn />
+      </Grid>
     </MobileNavWrapper>
   </NavContainer>, portal) : null
 }
