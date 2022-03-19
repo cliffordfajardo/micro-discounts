@@ -14,7 +14,7 @@ declare global {
 export const pageview = (url: string) => {
   window.gtag("config", GA_TRACKING_ID, {
     page_path: url,
-    debug_mode: true,
+    // debug_mode: true,
   });
 };
 
