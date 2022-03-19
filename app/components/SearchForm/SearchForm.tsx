@@ -37,6 +37,7 @@ const SearchForm = ({ searchResults = [] }: SearchFormProps) => {
 
   const [searchValue, setSearchValue] = useState("");
 
+  console.log("isMobile", isMobile);
   return (
     <>
       {
@@ -54,19 +55,21 @@ const SearchForm = ({ searchResults = [] }: SearchFormProps) => {
         style={{ flex: 5 }}
       >
         <div className="container">
-          <Form id="search-form" ref={ref} className="search-form" method="get">
-            <Input
-              value={searchValue}
-              placeholder="Search..."
-              autoComplete="off"
-              name="search"
-              type="search"
-              clearable
-              size="lg"
-              width="100%"
-              onChange={(e) => setSearchValue(e.target.value)}
-            />
-          </Form>
+          <div>
+            <Form id="search-form" ref={ref} className="search-form" method="get">
+              <Input
+                value={searchValue}
+                placeholder="Search..."
+                autoComplete="off"
+                name="search"
+                type="search"
+                clearable
+                size="lg"
+                width="100%"
+                onChange={(e) => setSearchValue(e.target.value)}
+              />
+            </Form>
+          </div>
           <Grid.Container justify="space-between" alignItems="center" css={{ marginTop: "$6" }}>
             <Grid>
               <Text span>{searchResults.length} resources</Text>

@@ -1,4 +1,4 @@
-import { Radio, styled, Text, Grid, Checkbox } from "@nextui-org/react";
+import { Radio, Text, Grid } from "@nextui-org/react";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { type SUPPORTED_FORM_IDS } from "~/utils";
@@ -39,7 +39,7 @@ const Tags = ["Students", "Teachers", "Free premium plan", "Free"];
  * ....
  * Associate this with the form
  */
-const SearchFilterSideBar = ({ formName, submitForm }: SearchFilterSideBarProps) => {
+const SearchFilterSideBar = ({ formName, submitForm, }: SearchFilterSideBarProps) => {
   const [catSelected, setCatSelected] = useState("");
   const [tagSelected, setTagSelected] = useState("");
   const location = useLocation();
