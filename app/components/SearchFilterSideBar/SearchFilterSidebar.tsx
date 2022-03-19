@@ -58,6 +58,16 @@ const SearchFilterSideBar = ({ formName, submitForm }: SearchFilterSideBarProps)
     } else {
       setCatSelected('');
     }
+
+    const allTag = new URLSearchParams(location.search).getAll("tags");
+    const tag = allTag.find(cat => cat && cat.toLowerCase() !== "on");
+    console.log('tag', tag)
+    if (tag) {
+      setTagSelected(tag.toLowerCase());
+    } else {
+      setTagSelected('');
+    }
+
   }, [location.search])
   return (
     <LeftNavWrapper>
@@ -95,9 +105,7 @@ const SearchFilterSideBar = ({ formName, submitForm }: SearchFilterSideBarProps)
           setTagSelected(e as string)
         }}>
         {Tags.map((tag) => (
-          <Radio key={tag} form={formName} name="tags" value={tag} size={"sm"} onClick={(e) => {
-            submitForm();
-          }}>
+          <Radio key={tag} form={formName} name="tags" value={tag.toLowerCase()} size={"sm"}>
             {tag}
           </Radio>
         ))}

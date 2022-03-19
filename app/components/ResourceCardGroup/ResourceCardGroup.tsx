@@ -9,12 +9,8 @@ export default function ResourceCardGroup({ resources }: Props) {
     <Grid.Container gap={2} justify="center">
       {resources.map((resource) => {
         return (
-          <Grid key={resource.id} xs={6} md={4}>
+          <Grid key={resource.id} xs={6} md={12}>
             <Card
-              style={{
-                width: 280,
-                height: 280,
-              }}
               css={{
                 paddingTop: "$3",
                 paddingBottom: "$3",
@@ -26,7 +22,7 @@ export default function ResourceCardGroup({ resources }: Props) {
               }}
             // clickable
             >
-              <div
+              <Grid
                 style={{
                   display: "flex",
                   flexDirection: "row",
@@ -45,9 +41,9 @@ export default function ResourceCardGroup({ resources }: Props) {
                 <div>
                   <Text span>{resource.title}</Text>
                 </div>
-              </div>
+              </Grid>
 
-              <div
+              <Grid
                 style={{
                   display: "flex",
                   flexDirection: "column",
@@ -66,7 +62,7 @@ export default function ResourceCardGroup({ resources }: Props) {
                     </Grid>
                   ))}
                 </Grid.Container>
-              </div>
+              </Grid>
             </Card>
           </Grid>
         );
@@ -92,7 +88,8 @@ const IconSvgPathMap: { [key: string]: string } = {
   "invisionapp.com": "https://rosenfeldmedia.com/designopssummit2017/wp-content/uploads/sites/6/2017/06/invision-logo-pink.jpg",
   "gitpod.io": "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/vxjxtilpe1beylhwlpof",
   "sentry.io": "https://seeklogo.com/images/S/sentry-logo-36928B74C1-seeklogo.com.png",
-  "coder.com": "/icons/coder-logo.png",
+  "coder.com": "/icons/coder-logo.svg",
+  "buninux.com": "https://buninux.com/images/logo.svg",
 };
 
 export function faviconUrl(size: number, url: string): string {
