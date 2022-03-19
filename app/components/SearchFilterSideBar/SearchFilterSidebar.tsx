@@ -14,7 +14,7 @@ type SearchFilterSideBarProps = {
    * @description
    * Allow programtically submit the form
    */
-  submitForm: () => void
+  submitForm: () => void;
 };
 
 const Categories = [
@@ -28,7 +28,7 @@ const Categories = [
   "shopping",
   "web hosting",
   "vpn",
-  "Fashion"
+  "Fashion",
 ];
 const Tags = ["Students", "Teachers", "Free premium plan", "Free"];
 
@@ -52,31 +52,32 @@ const SearchFilterSideBar = ({ formName, submitForm }: SearchFilterSideBarProps)
   const location = useLocation();
   useEffect(() => {
     const allCat = new URLSearchParams(location.search).getAll("category");
-    const category = allCat.find(cat => cat && cat.toLowerCase() !== "on");
+    const category = allCat.find((cat) => cat && cat.toLowerCase() !== "on");
     if (category) {
       setCatSelected(category.toLowerCase());
     } else {
-      setCatSelected('');
+      setCatSelected("");
     }
 
     const allTag = new URLSearchParams(location.search).getAll("tags");
-    const tag = allTag.find(cat => cat && cat.toLowerCase() !== "on");
-    console.log('tag', tag)
+    const tag = allTag.find((cat) => cat && cat.toLowerCase() !== "on");
+    console.log("tag", tag);
     if (tag) {
       setTagSelected(tag.toLowerCase());
     } else {
-      setTagSelected('');
+      setTagSelected("");
     }
-
-  }, [location.search])
+  }, [location.search]);
   return (
     <LeftNavWrapper>
       <Text h4>Category</Text>
 
       <Grid.Container gap={1}>
-        <Radio.Group value={catSelected} onClick={(e) => {
-          submitForm();
-        }}
+        <Radio.Group
+          value={catSelected}
+          onClick={(e) => {
+            submitForm();
+          }}
           onChange={(e) => {
             setCatSelected(e as string);
           }}
@@ -86,7 +87,14 @@ const SearchFilterSideBar = ({ formName, submitForm }: SearchFilterSideBarProps)
           </Radio>
           {Categories.map((category) => {
             return (
-              <Radio key={category} form={formName} name="category" value={category.toLowerCase()} size={"sm"} squared={true}>
+              <Radio
+                key={category}
+                form={formName}
+                name="category"
+                value={category.toLowerCase()}
+                size={"sm"}
+                squared={true}
+              >
                 {category}
               </Radio>
             );
@@ -98,12 +106,17 @@ const SearchFilterSideBar = ({ formName, submitForm }: SearchFilterSideBarProps)
         Tags
       </Text>
 
-      <Radio.Group color="primary" css={{ marginLeft: "$4" }} value={tagSelected} onClick={() => {
-        submitForm();
-      }}
+      <Radio.Group
+        color="primary"
+        css={{ marginLeft: "$4" }}
+        value={tagSelected}
+        onClick={() => {
+          submitForm();
+        }}
         onChange={(e) => {
-          setTagSelected(e as string)
-        }}>
+          setTagSelected(e as string);
+        }}
+      >
         {Tags.map((tag) => (
           <Radio key={tag} form={formName} name="tags" value={tag.toLowerCase()} size={"sm"}>
             {tag}

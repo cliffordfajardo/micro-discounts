@@ -15,13 +15,6 @@ export const links = () => {
   return [
     {
       rel: "stylesheet",
-      href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css",
-      integrity: "sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==",
-      crossOrigin: "anonymous",
-      referrerPolicy: "no-referrer",
-    },
-    {
-      rel: "stylesheet",
       href: homepageCSS,
     },
   ];
@@ -40,11 +33,12 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   debug();
   const url = new URL(request.url);
   const searchTermParam = url.searchParams.get("search")?.trim().toLocaleLowerCase() || "";
-  const categoryParam = url.searchParams.getAll("category")
-    .map(cat => cat.toLowerCase())
-    .filter(cat => !["all", "on"].includes(cat));
+  const categoryParam = url.searchParams
+    .getAll("category")
+    .map((cat) => cat.toLowerCase())
+    .filter((cat) => !["all", "on"].includes(cat));
 
-  const tagsParam = url.searchParams.getAll("tags").map(t => t.toLowerCase());
+  const tagsParam = url.searchParams.getAll("tags").map((t) => t.toLowerCase());
 
   const db = await getDbInstance();
   const discountItems = await db.fetchAllResourcesCached();
