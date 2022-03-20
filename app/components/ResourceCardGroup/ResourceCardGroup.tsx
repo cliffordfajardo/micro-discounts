@@ -1,4 +1,4 @@
-import { Card, Grid, Text, useTheme, styled, Button, Image } from "@nextui-org/react";
+import { Card, Grid, Text, styled } from "@nextui-org/react";
 import type { ResourceTable } from "~/types/dbTypes";
 import { event } from "~/utils/gtag";
 type Props = {
@@ -9,6 +9,7 @@ export default function ResourceCardGroup({ resources }: Props) {
   return (
     <Grid.Container gap={2} justify="center">
       {resources.map((resource) => {
+        const resourceIconURL = IconSvgPathMap[resource?.domain || ""] || faviconUrl(50, resource?.url || "");
         return (
           <Grid key={resource.id} xs={12} md={6}>
             <Card
@@ -38,12 +39,7 @@ export default function ResourceCardGroup({ resources }: Props) {
                 }}
               >
                 <div>
-                  <Image
-                    src={IconSvgPathMap[resource?.domain || ""] || faviconUrl(50, resource?.url || "")}
-                    alt="canva logo"
-                    height={50}
-                    width={50}
-                  />
+                  <img loading="lazy" src={resourceIconURL} alt="logo" height={50} width={50} />
                 </div>
                 <div>
                   <Text span>{resource.title}</Text>

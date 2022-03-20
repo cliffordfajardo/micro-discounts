@@ -1,17 +1,29 @@
+/* eslint-disable react/jsx-no-target-blank */
+import useMediaQuery from "~/utils/useMediaQuery";
+
 /**
  * @description
  * Small Icon on top left showing github icon.
  * When clicked it will direct user to repo.
  */
 const ViewSourceGithub = () => {
+  const isMobile = useMediaQuery("(max-width: 1200px)");
+
   return (
     <>
       <a
-        href="https://github.com/robcerda/educationaldiscounts"
+        href="https://github.com/cliffordfajardo/educational-resources"
+        target="_blank"
         className="github-corner"
         aria-label="View source on Github"
       >
-        <svg viewBox="0 0 250 250">
+        <svg
+          viewBox="0 0 250 250"
+          style={{
+            height: isMobile ? 50 : 80,
+            width: isMobile ? 50 : 80,
+          }}
+        >
           <path className="octo-triangle" d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
           <path
             className="octo-arm"

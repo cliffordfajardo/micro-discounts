@@ -1,5 +1,5 @@
 import { SupabaseDB } from "./supabaseDB";
-import { SQLiteDB } from "./sqliteDB";
+// import { SQLiteDB } from "./sqliteDB";
 import { type SQLDatabase } from "./database";
 
 type DB_Type = "supabase" | "sqlite";
@@ -45,7 +45,7 @@ export async function getDb(): Promise<SQLDatabase> {
   //   return DB;
   // } else {
   //   console.log("[utils.js] USING THE FOLLOWING DB: SQLITE");
-  //   // const sqliteDB = new SQLiteDB();
+  // const sqliteDB = new SQLiteDB();
   //   // return sqliteDB;
   // }
 }

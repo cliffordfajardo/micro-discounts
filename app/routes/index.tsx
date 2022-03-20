@@ -1,11 +1,11 @@
 import { Text } from "@nextui-org/react";
 import { json, useLoaderData, type LoaderFunction } from "remix";
 import { SearchForm } from "~/components/SearchForm";
-import homepageCSS from "~/styles/index.css";
 import { ResourceTable } from "~/types/dbTypes";
-import { debug, filterDBItems, getDbInstance } from "~/utils";
+import { filterDBItems, getDbInstance } from "~/utils";
 import { DefaultLayout } from "~/layouts/DefaultLayout";
 import { useRef } from "react";
+import homepageCSS from "~/styles/index.css";
 
 /**
  * @description
