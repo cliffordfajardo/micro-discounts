@@ -12,7 +12,7 @@ const ViewSourceGithub = () => {
   return (
     <>
       <a
-        href="https://github.com/cliffordfajardo/educational-resources"
+        href="https://github.com/cliffordfajardo/micro-discounts"
         target="_blank"
         className="github-corner"
         aria-label="View source on Github"
