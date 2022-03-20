@@ -11,7 +11,7 @@ import {
   useLocation,
   type MetaFunction,
 } from "remix";
-import { createTheme, NextUIProvider } from "@nextui-org/react";
+import { createTheme, NextUIProvider, CssBaseline } from "@nextui-org/react";
 import IndexCss from "~/styles/index.css";
 import { GA_TRACKING_ID, pageview } from "~/utils/gtag.client";
 import { useEffect } from "react";
@@ -82,6 +82,7 @@ function Document({ children, title = "App title" }: { children: React.ReactNode
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <title>{title}</title>
+        {CssBaseline.flush()}
         <Links />
       </head>
       <body>
