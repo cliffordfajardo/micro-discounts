@@ -9,7 +9,6 @@ export default function ResourceCardGroup({ resources }: Props) {
   return (
     <Grid.Container gap={2} justify="center">
       {resources.map((resource) => {
-        const resourceIconURL = IconSvgPathMap[resource?.domain || ""] || faviconUrl(50, resource?.url || "");
         return (
           <Grid key={resource.id} xs={12} md={6}>
             <Card
@@ -39,7 +38,13 @@ export default function ResourceCardGroup({ resources }: Props) {
                 }}
               >
                 <div>
-                  <img loading="lazy" src={resourceIconURL} alt="logo" height={50} width={50} />
+                  <img
+                    loading="lazy"
+                    src={getImageFromMultiplePlace(resource.domain, resource.url)}
+                    alt="logo"
+                    height={50}
+                    width={50}
+                  />
                 </div>
                 <div>
                   <Text span>{resource.title}</Text>
@@ -74,6 +79,12 @@ export default function ResourceCardGroup({ resources }: Props) {
   );
 }
 
+const getImageFromMultiplePlace = (domain: string | undefined, url: string | undefined) => {
+  domain ??= "";
+  url ??= "";
+  return IconSvgPathMap[domain] || `/icons/${domain}.png` || faviconUrl(50, url);
+};
+
 const IconSvgPathMap: { [key: string]: string } = {
   "canva.com": "/icons/canva-logo.svg",
   "github.com": "/icons/github-logo.svg",
@@ -84,17 +95,8 @@ const IconSvgPathMap: { [key: string]: string } = {
   "adidas.com": "/icons/adidas-logo.svg",
   "microsoft.com": "/icons/microsoft-office-logo.svg",
   "autodesk.com": "/icons/autodesk-logo.svg",
-  "mailgun.com": "/icons/mailgun-logo.png",
   "get.tech": "/icons/gettech-logo.jpeg",
-  "chase.com": "/icons/chasebank-logo.png",
-  "sketch.com": "https://www.sketch.com/images/metadata/icon-96.png",
-  "invisionapp.com":
-    "https://rosenfeldmedia.com/designopssummit2017/wp-content/uploads/sites/6/2017/06/invision-logo-pink.jpg",
-  "gitpod.io":
-    "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/vxjxtilpe1beylhwlpof",
-  "sentry.io": "https://seeklogo.com/images/S/sentry-logo-36928B74C1-seeklogo.com.png",
-  "coder.com": "/icons/coder-logo.svg",
-  "buninux.com": "https://buninux.com/images/logo.svg",
+  "buninux.com": "/icons/logo-buninux.svg",
 };
 
 export function faviconUrl(size: number, url: string): string {
