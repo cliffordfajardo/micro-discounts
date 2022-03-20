@@ -14,7 +14,7 @@ export abstract class SQLDatabase {
     return Promise.reject("Not yet implemented");
   }
 
-  public async fetchAllResourcesCached (): Promise<ResourceTable[]> {
+  public async fetchAllResourcesCached(): Promise<ResourceTable[]> {
     return Promise.reject("Not yet implemented");
   }
 }

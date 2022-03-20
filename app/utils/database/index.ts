@@ -57,5 +57,3 @@ export async function getDbInstance(): Promise<SQLDatabase> {
   }
   return db;
 }
-
-

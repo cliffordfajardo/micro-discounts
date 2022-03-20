@@ -23,6 +23,5 @@ export default function AboutPage() {
         </li>
       </ul>
     </DefaultLayout>
-
   );
 }

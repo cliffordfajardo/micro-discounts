@@ -11,7 +11,9 @@ if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_KEY) {
   process.exit(1);
 }
 
-const DB_REFRESH_INTERVAL_MS = (process.env.DB_REFRESH_INTERVAL_MS ? parseInt(process.env.DB_REFRESH_INTERVAL_MS) : 1000 * 10);
+const DB_REFRESH_INTERVAL_MS = process.env.DB_REFRESH_INTERVAL_MS
+  ? parseInt(process.env.DB_REFRESH_INTERVAL_MS)
+  : 1000 * 10;
 
 export class SupabaseDB extends SQLDatabase {
   // @ts-ignore
@@ -40,7 +42,7 @@ export class SupabaseDB extends SQLDatabase {
         lastFetch: this.lastFetch,
         now: Date.now(),
         diff: Date.now() - this.lastFetch,
-        DB_REFRESH_INTERVAL_MS 
+        DB_REFRESH_INTERVAL_MS,
       });
       this.resourceTableCache = (await this.db.from<ResourceTable>("resources").select("*")).data;
       this.lastFetch = Date.now();

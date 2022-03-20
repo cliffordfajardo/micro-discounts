@@ -2,11 +2,7 @@ export const GA_TRACKING_ID = "G-27NWG851Z9";
 
 declare global {
   interface Window {
-    gtag: (
-      option: string,
-      gaTrackingId: string,
-      options: Record<string, unknown>
-    ) => void;
+    gtag: (option: string, gaTrackingId: string, options: Record<string, unknown>) => void;
   }
 }
 
@@ -19,16 +15,11 @@ export const pageview = (url: string) => {
 };
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
-export const event = ({
-  action,
-  category,
-  label,
-  value
-}: Record<string, string>) => {
-  console.log('logging event event', { action, category, label, value });
+export const event = ({ action, category, label, value }: Record<string, string>) => {
+  console.log("logging event event", { action, category, label, value });
   window.gtag("event", action, {
     event_category: category,
     event_label: label,
-    value: value
+    value: value,
   });
 };

@@ -1,6 +1,6 @@
 import { Card, Grid, Text, useTheme, styled, Button, Image } from "@nextui-org/react";
 import type { ResourceTable } from "~/types/dbTypes";
-import { event } from '~/utils/gtag';
+import { event } from "~/utils/gtag";
 type Props = {
   resources: ResourceTable[];
 };
@@ -23,10 +23,10 @@ export default function ResourceCardGroup({ resources }: Props) {
                   action: "click card",
                   label: "title",
                   value: resource.domain || resource.title || "",
-                })
+                });
                 window.open(resource.url, "_blank");
               }}
-            // clickable
+              // clickable
             >
               <Grid
                 style={{
@@ -38,7 +38,8 @@ export default function ResourceCardGroup({ resources }: Props) {
                 }}
               >
                 <div>
-                  <Image src={IconSvgPathMap[resource?.domain || ""] || faviconUrl(50, resource?.url || "")}
+                  <Image
+                    src={IconSvgPathMap[resource?.domain || ""] || faviconUrl(50, resource?.url || "")}
                     alt="canva logo"
                     height={50}
                     width={50}
@@ -91,8 +92,10 @@ const IconSvgPathMap: { [key: string]: string } = {
   "get.tech": "/icons/gettech-logo.jpeg",
   "chase.com": "/icons/chasebank-logo.png",
   "sketch.com": "https://www.sketch.com/images/metadata/icon-96.png",
-  "invisionapp.com": "https://rosenfeldmedia.com/designopssummit2017/wp-content/uploads/sites/6/2017/06/invision-logo-pink.jpg",
-  "gitpod.io": "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/vxjxtilpe1beylhwlpof",
+  "invisionapp.com":
+    "https://rosenfeldmedia.com/designopssummit2017/wp-content/uploads/sites/6/2017/06/invision-logo-pink.jpg",
+  "gitpod.io":
+    "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/vxjxtilpe1beylhwlpof",
   "sentry.io": "https://seeklogo.com/images/S/sentry-logo-36928B74C1-seeklogo.com.png",
   "coder.com": "/icons/coder-logo.svg",
   "buninux.com": "https://buninux.com/images/logo.svg",

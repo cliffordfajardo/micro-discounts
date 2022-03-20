@@ -31,30 +31,30 @@ type SearchFormProps = {
  */
 const SearchForm = ({ searchResults = [], formRef, submitForm }: SearchFormProps) => {
   const navigate = useNavigate();
-  const isMobile = useMediaQuery('(max-width: 960px)');
+  const isMobile = useMediaQuery("(max-width: 960px)");
 
   const [searchValue, setSearchValue] = useState("");
 
   console.log("isMobile", isMobile);
   return (
     <>
-      {
-        !isMobile && <section style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: 2,
-          flex: 2,
-        }}>
+      {!isMobile && (
+        <section
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+            flex: 2,
+          }}
+        >
           <SearchFilterSideBar formName="search-form" submitForm={submitForm} />
         </section>
-      }
+      )}
 
-      <section className="search-results"
-        style={{ flex: 5 }}
-      >
+      <section className="search-results" style={{ flex: 5 }}>
         <div className="container">
           <div>
-            <Form id="search-form" ref={formRef} className="search-form" method="get">
+            <Form id="search-form" ref={formRef} className="search-form" method="get" style={{ display: "flex" }}>
               <Input
                 value={searchValue}
                 placeholder="Search..."
@@ -64,8 +64,12 @@ const SearchForm = ({ searchResults = [], formRef, submitForm }: SearchFormProps
                 clearable
                 size="lg"
                 width="100%"
+                style={{
+                  borderRadius: "initial !important",
+                }}
                 onChange={(e) => setSearchValue(e.target.value)}
               />
+              <Button style={{ width: 100, minWidth: "initial !important" }}>Search</Button>
             </Form>
           </div>
           <Grid.Container justify="space-between" alignItems="center" css={{ marginTop: "$6" }}>
@@ -73,10 +77,15 @@ const SearchForm = ({ searchResults = [], formRef, submitForm }: SearchFormProps
               <Text span>{searchResults.length} resources</Text>
             </Grid>
             <Grid>
-              <Button light color="error" auto onClick={() => {
-                navigate('/', { replace: true });
-                formRef?.current?.reset();
-              }}>
+              <Button
+                light
+                color="error"
+                auto
+                onClick={() => {
+                  navigate("/", { replace: true });
+                  formRef?.current?.reset();
+                }}
+              >
                 Clear filter
               </Button>
             </Grid>

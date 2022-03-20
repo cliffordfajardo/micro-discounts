@@ -32,14 +32,12 @@ const Categories = [
 ];
 const Tags = ["Students", "Teachers", "Free premium plan", "Free"];
 
-
-
 /**
  * @description
  * ....
  * Associate this with the form
  */
-const SearchFilterSideBar = ({ formName, submitForm, }: SearchFilterSideBarProps) => {
+const SearchFilterSideBar = ({ formName, submitForm }: SearchFilterSideBarProps) => {
   const [catSelected, setCatSelected] = useState("");
   const [tagSelected, setTagSelected] = useState("");
   const location = useLocation();

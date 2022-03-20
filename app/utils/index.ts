@@ -24,10 +24,7 @@ type filterDBItemsFunction = (
   queryParams: { category: string[]; searchTerm: string; tags: string[] },
 ) => ResourceTable[];
 
-export const filterDBItems: filterDBItemsFunction = (
-  data = [],
-  { category = [], searchTerm = "", tags = [] },
-) => {
+export const filterDBItems: filterDBItemsFunction = (data = [], { category = [], searchTerm = "", tags = [] }) => {
   if (data.length <= 1) return data;
 
   let result: ResourceTable[] = data;
@@ -52,7 +49,7 @@ export const filterDBItems: filterDBItemsFunction = (
 
   if (hasTags) {
     result = result.filter((item) => {
-      return (item.tags|| []).some((tag) => tags.includes(tag));
+      return (item.tags || []).some((tag) => tags.includes(tag));
     });
   }
   return result;

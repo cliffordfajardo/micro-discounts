@@ -1,10 +1,9 @@
 import { Text } from "@nextui-org/react";
-import { json, useLoaderData, useTransition, type LoaderFunction } from "remix";
-import { NavBar } from "~/layouts/NavBar";
+import { json, useLoaderData, type LoaderFunction } from "remix";
 import { SearchForm } from "~/components/SearchForm";
 import homepageCSS from "~/styles/index.css";
 import { ResourceTable } from "~/types/dbTypes";
-import { debug, getDb, filterDBItems, getDbInstance, DB_REFRESH_INTERVAL } from "~/utils";
+import { debug, filterDBItems, getDbInstance } from "~/utils";
 import { DefaultLayout } from "~/layouts/DefaultLayout";
 import { useRef } from "react";
 
@@ -66,7 +65,7 @@ export default function HomePage() {
     if (formRef.current) {
       formRef.current.dispatchEvent(new Event("submit", { cancelable: true, bubbles: true }));
     }
-  }
+  };
   return (
     <DefaultLayout submitForm={submitForm}>
       <section style={{ marginTop: 60 }}>
@@ -76,7 +75,7 @@ export default function HomePage() {
       </section>
 
       <main style={{ marginTop: 30 }}>
-        <SearchForm searchResults={data} formName="search-form" formRef={formRef} submitForm={submitForm}/>
+        <SearchForm searchResults={data} formName="search-form" formRef={formRef} submitForm={submitForm} />
       </main>
     </DefaultLayout>
   );
