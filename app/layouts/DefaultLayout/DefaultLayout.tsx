@@ -4,13 +4,13 @@ import { NavBar } from "../NavBar";
 
 type Props = {
   title?: string;
-  submitForm: () => void;
+  submitForm?: () => void;
 };
 
-const DefaultLayout: React.FC<Props> = ({ title = "Education Resource", children, submitForm }) => {
+const DefaultLayout: React.FC<Props> = ({ title = "About | Microdiscounts.website", children, submitForm }) => {
   return (
     <>
-      <NavBar submitForm={submitForm} />
+      <NavBar submitForm={submitForm as () => void} />
       <Container>{children}</Container>
     </>
   );

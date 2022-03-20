@@ -30,7 +30,6 @@ export const links = () => {
  * `loader` can only be used in `routes` folder files
  */
 export const loader: LoaderFunction = async ({ request, params }) => {
-  debug();
   const url = new URL(request.url);
   const searchTermParam = url.searchParams.get("search")?.trim().toLocaleLowerCase() || "";
   const categoryParam = url.searchParams
@@ -77,6 +76,16 @@ export default function HomePage() {
       <main style={{ marginTop: 30 }}>
         <SearchForm searchResults={data} formName="search-form" formRef={formRef} submitForm={submitForm} />
       </main>
+
+      <footer
+        style={{
+          marginTop: 70,
+          height: 40,
+          border: `1px solid black`,
+        }}
+      >
+        test
+      </footer>
     </DefaultLayout>
   );
 }

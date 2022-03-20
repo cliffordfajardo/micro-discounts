@@ -20,7 +20,7 @@ import useMediaQuery from "~/utils/useMediaQuery";
 export default function NavBar({ submitForm }: { submitForm: () => void }) {
   const location = useLocation();
   const activeHomePage = location.pathname === "/";
-  // const activeAboutPage = location.pathname === "/about";
+  const activeAboutPage = location.pathname === "/about";
   const isMobile = useMediaQuery("(max-width: 960px)");
   const [expanded, setExpanded] = useState(false);
 
@@ -60,7 +60,7 @@ export default function NavBar({ submitForm }: { submitForm: () => void }) {
       {!isMobile && (
         <Col css={{ marginRight: "$2" }}>
           <Row justify="flex-end" align="center">
-            <Spacer x={1} y={0} />
+            {/* <Spacer x={1} y={0} />
             <Link to="/">
               <NextUiLink
                 css={{
@@ -70,17 +70,19 @@ export default function NavBar({ submitForm }: { submitForm: () => void }) {
               >
                 Explore
               </NextUiLink>
+            </Link> */}
+            <Spacer x={1} y={0} />
+            <Link to="/about">
+              <NextUiLink
+                css={{
+                  color: activeAboutPage ? "$primary" : "$text",
+                  fontWeight: activeAboutPage ? "bold" : "normal",
+                }}
+              >
+                About
+              </NextUiLink>
             </Link>
             <Spacer x={1} y={0} />
-            {/* <Link to="/about" >
-          <NextUiLink css={{
-            color: activeAboutPage ? '$primary' : "$text",
-            fontWeight: activeAboutPage ? 'bold' : 'normal',
-          }}>
-            About
-          </NextUiLink>
-        </Link>
-        <Spacer x={1} y={0} /> */}
             <AddResourceBtn />
           </Row>
         </Col>
@@ -88,14 +90,14 @@ export default function NavBar({ submitForm }: { submitForm: () => void }) {
       {isMobile && (
         <Col>
           <Row justify="flex-end">
-            <MenuToggleBtn
+            <MenuToggleButton
               onClick={() => {
                 setExpanded(!expanded);
                 isMobile && setBodyHidden(!expanded);
               }}
             >
               open
-            </MenuToggleBtn>
+            </MenuToggleButton>
 
             <MobileNav opened={expanded} submitForm={submitForm} />
           </Row>
@@ -179,7 +181,7 @@ const MobileNavWrapper = styled("div", {
   backdropFilter: "saturate(180%) blur(10px)",
 });
 
-const MenuToggleBtn = ({ onClick }: { onClick: () => void }) => {
+const MenuToggleButton = ({ onClick }: { onClick: () => void }) => {
   return (
     <Button
       light
@@ -223,6 +225,7 @@ const MenuToggleBtn = ({ onClick }: { onClick: () => void }) => {
     </Button>
   );
 };
+
 //@ts-ignore
 const HamburgerBar = styled("div", {
   position: "relative",

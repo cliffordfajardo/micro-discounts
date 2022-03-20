@@ -4,24 +4,30 @@ export default function AboutPage() {
   //
   return (
     <DefaultLayout>
-      <h1>Welcome to About page</h1>
-      <ul>
-        <li>
-          <a target="_blank" href="https://remix.run/tutorials/blog" rel="noreferrer">
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/tutorials/jokes" rel="noreferrer">
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+      <h1 style={{ marginTop: 40 }}>About MicroDiscount </h1>
+
+      <p>Hello world 🌍,</p>
+      <p>
+        MicroDiscount is a free<b>centralized place to discover and share</b> quality discounts with the community.
+      </p>
+      <p>
+        <a href="https://twitter.com/cliffordfajard0">Clifford</a>,{" "}
+        <a href="https://twitter.com/domnguyen5653">Dominque</a> and <a href="https://twitter.com/_robcerda">Rob </a>
+        created this website because they noticed{" "}
+        <b>there wasn't an easy, simple centralized place to discover discounts online.</b> Whether you're a student in
+        college seeking a laptop or backpack discount, a teacher needing a software discount to teach her class or just
+        a hobbyist trying out a new service out, our aim is to empower you.
+      </p>
+      <p>
+        Most other discount websites are crowded with unhelpful ads and content distracting you from easily finding that
+        discount you need. We are different. Our aim is to be simple and easy to use.
+      </p>
+
+      <h3>Would you like to submit a resource?</h3>
+      <p>
+        We are open to contributions. If you would like to submit a resource, consider clicking the "Add a Resource"
+        button on this page.
+      </p>
     </DefaultLayout>
   );
 }
