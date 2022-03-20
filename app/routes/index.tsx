@@ -77,7 +77,7 @@ export default function HomePage() {
         <SearchForm searchResults={data} formName="search-form" formRef={formRef} submitForm={submitForm} />
       </main>
 
-      <footer
+      {/* <footer
         style={{
           marginTop: 70,
           height: 40,
@@ -85,7 +85,7 @@ export default function HomePage() {
         }}
       >
         test
-      </footer>
+      </footer> */}
     </DefaultLayout>
   );
 }
