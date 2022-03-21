@@ -69,7 +69,7 @@ export default function HomePage() {
     <DefaultLayout submitForm={submitForm}>
       <section style={{ marginTop: 60 }}>
         <Text span size={30}>
-          The world's largest directory of tech discounts and resources for students and teachers.
+          The world's largest directory of software discounts and resources for students, teachers and hobbyists.
         </Text>
       </section>
 

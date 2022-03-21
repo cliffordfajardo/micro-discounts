@@ -24,8 +24,8 @@ export default function AboutPage() {
         </a>
         created this website because they noticed{" "}
         <b>there wasn't an easy, simple centralized place to discover discounts online.</b> Whether you're a student in
-        college seeking a laptop or backpack discount, a teacher needing a software discount to teach her class or just
-        a hobbyist trying out a new service out, our aim is to empower you.
+        college seeking a laptop or backpack discount, a teacher needing a software discount to teach their class or
+        just a hobbyist trying out a new service out, our aim is to empower you.
       </p>
       <p>
         Most other discount websites are crowded with unhelpful ads and content distracting you from easily finding that

@@ -11,7 +11,7 @@ type Props = {
 const DefaultLayout: React.FC<Props> = ({ title = "About | Microdiscounts.website", children, submitForm }) => {
   return (
     <>
-      <ViewSourceGithub />
+      {/* <ViewSourceGithub /> */}
       <NavBar submitForm={submitForm as () => void} />
       <Container>{children}</Container>
     </>

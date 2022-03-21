@@ -1,34 +1,29 @@
-# Welcome to Remix!
+# MicroDiscounts
 
-- [Remix Docs](https://remix.run/docs)
+<img src="./public/icons/github-README-banner.jpg">
 
-## Deployment
+[![PRs Welcome][prs-badge]][prs]
 
-After having run the `create-remix` command and selected "Vercel" as a deployment target, you only need to [import your Git repository](https://vercel.com/new) into Vercel, and it will be deployed.
+MicroDiscount - The world's largest directory of tech & software discounts for students, teachers & hobbyists.
 
-If you'd like to avoid using a Git repository, you can also deploy the directory by running [Vercel CLI](https://vercel.com/cli):
+<!-- **Discuss it on [Product Hunt](https://www.producthunt.com/posts/cato)** 🐈 -->
 
-```sh
-npm i -g vercel
-vercel
-```
+## Technology Stack
 
-It is generally recommended to use a Git repository, because future commits will then automatically be deployed by Vercel, through its [Git Integration](https://vercel.com/docs/concepts/git).
+- [Remix Run](https://remix.run/)
+- [Vercel](https://vercel.com)
+- [NextUI](https://nextui.org/)
 
-## Development
+## Contributing and Development
 
-To run your Remix app locally, make sure your project's local dependencies are installed:
+Instructions coming soon 👀
 
-```sh
-npm install
-```
+## Credits
 
-Afterwards, start the Remix development server like so:
+- [Clifford](https://twitter.com/cliffordfajard0)
+- [Dom](https://twitter.com/domnguyen5653)
+- [Rob](https://twitter.com/_robcerda)
 
-```sh
-npm run dev
-```
-
-Open up [http://localhost:3000](http://localhost:3000) and you should be ready to go!
-
-If you're used to using the `vercel dev` command provided by [Vercel CLI](https://vercel.com/cli) instead, you can also use that, but it's not needed.
+[license]: https://github.com/cliffordfajardo/micro-discount/cross-env/blob/master/other/LICENSE
+[prs]: http://makeapullrequest.com
+[prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square

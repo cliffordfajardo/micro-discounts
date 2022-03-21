@@ -1,6 +1,6 @@
 import { Card, Grid, Text, styled } from "@nextui-org/react";
 import type { ResourceTable } from "~/types/dbTypes";
-import { event } from "~/utils/gtag";
+import { event } from "~/utils/gtag.client";
 type Props = {
   resources: ResourceTable[];
 };

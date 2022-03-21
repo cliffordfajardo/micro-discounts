@@ -15,6 +15,7 @@ import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link, useLocation } from "remix";
 import { SearchFilterSideBar } from "~/components/SearchFilterSideBar";
+import { ThemeToggle } from "~/components/ThemeToggle";
 import useMediaQuery from "~/utils/useMediaQuery";
 
 export default function NavBar({ submitForm }: { submitForm: () => void }) {
@@ -45,7 +46,7 @@ export default function NavBar({ submitForm }: { submitForm: () => void }) {
       css={{
         position: "sticky",
         top: 0,
-        background: "rgba(255,255,255,0.75)",
+        backdropFilter: "saturate(180%) blur(10px)",
         zIndex: 100,
         height: 76,
       }}
@@ -60,27 +61,17 @@ export default function NavBar({ submitForm }: { submitForm: () => void }) {
       {!isMobile && (
         <Col css={{ marginRight: "$2" }}>
           <Row justify="flex-end" align="center">
-            {/* <Spacer x={1} y={0} />
-            <Link to="/">
-              <NextUiLink
-                css={{
-                  color: activeHomePage ? "$primary" : "$text",
-                  fontWeight: activeHomePage ? "bold" : "normal",
-                }}
-              >
-                Explore
-              </NextUiLink>
-            </Link> */}
+            <ThemeToggle />
             <Spacer x={1} y={0} />
-            <Link to="/about">
-              <NextUiLink
-                css={{
-                  color: activeAboutPage ? "$primary" : "$text",
-                  fontWeight: activeAboutPage ? "bold" : "normal",
-                }}
-              >
-                About
-              </NextUiLink>
+            {/* TODO: open up discussion on discord/github on how to use just 1 link */}
+            <Link
+              to="/about"
+              style={{
+                fontWeight: activeAboutPage ? "bold" : "normal",
+              }}
+            >
+              About
+              {/* <NextUiLink css={{}}>About</NextUiLink> */}
             </Link>
             <Spacer x={1} y={0} />
             <AddResourceBtn />
@@ -177,7 +168,6 @@ const MobileNavWrapper = styled("div", {
   width: "100%",
   minHeight: "100%",
   transition: "all 0.2 ease 50ms",
-  background: "rgba(255, 255, 255, 0.60)",
   backdropFilter: "saturate(180%) blur(10px)",
 });
 
@@ -197,9 +187,6 @@ const MenuToggleButton = ({ onClick }: { onClick: () => void }) => {
           position: "relative",
           width: 25,
           height: 25,
-          // backgroundColor: 'black',
-
-          // borderRadius: '$2',
         }}
       >
         <HamburgerBar

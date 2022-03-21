@@ -52,7 +52,6 @@ const SearchFilterSideBar = ({ formName, submitForm }: SearchFilterSideBarProps)
 
     const allTag = new URLSearchParams(location.search).getAll("tags");
     const tag = allTag.find((cat) => cat && cat.toLowerCase() !== "on");
-    console.log("tag", tag);
     if (tag) {
       setTagSelected(tag.toLowerCase());
     } else {
@@ -73,7 +72,7 @@ const SearchFilterSideBar = ({ formName, submitForm }: SearchFilterSideBarProps)
             setCatSelected(e as string);
           }}
         >
-          <Radio key="all" form={formName} name="category" value="all" size={"sm"} squared={true}>
+          <Radio key="all" form={formName} name="category" value="all" size={"sm"} squared="true">
             All
           </Radio>
           {Categories.map((category) => {
@@ -84,7 +83,7 @@ const SearchFilterSideBar = ({ formName, submitForm }: SearchFilterSideBarProps)
                 name="category"
                 value={category.toLowerCase()}
                 size={"sm"}
-                squared={true}
+                squared="true"
               >
                 {category}
               </Radio>

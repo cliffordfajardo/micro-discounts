@@ -39,21 +39,8 @@ Remix is a fullstack reactjs based web framework.
 
 ## General Thoughts
 
-- This website is simple in nature, and is mostly a static static data site. All the data (list of resources, links etc) are stored on the server; currently there is no database; at this time there isn't a need for one, but perhaps later it might make sense to add one.
-- All content is server side rendered
-
-## FAQ
-
-**Why is this website server side rendered?**
-
-- This website fortunately, is not a complicated single page application and is quite static in nature.
-- Search Engine Optimization & page speed are important part of this resource, which all influence search engine discoverability, ranking, and usability. The topic of SEO is huge, but this is explanation is a simple explanation.
-- `remix-run` makes server side rendering (SSR) very simple. In the past, such as setup would have been a pain to setup & manage & we likely would have just made a very light client side rendered (CSR) web application, since modern search engine bots can parse javascript.
-
-**Why are not using Docker?**
-
-- Docker is a great tool for creating fully reproducible code environments on any developer's machine. For the purposes of this project, docker adds more complexity; we make the assumption that most contributors are familiar with the NodeJS ecosystem (npm) and thus installing & running the code _should_ be simple.
-- This website is fairly static; for example since the data does not change very often, it can be simply stored in a JSON file or array in memory on the server. User's will eventually be able to sumbit resources through a form, which will be briefly reviewed for quaility purposes & then be added to the data (JSON file or list in the backend).
+- This website is simple in nature, and is mostly a static static data site; we use cache headers to simulate a static website.
+- All content is server side rendered, which is nice for SEO and we get for free using Remix without thinking about it.
 
 ## Resources
 
