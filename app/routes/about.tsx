@@ -16,7 +16,7 @@ export default function AboutPage() {
         </a>
         ,{" "}
         <a href="https://twitter.com/domnguyen5653" target="_blank">
-          Dominque
+          Dominic
         </a>{" "}
         and{" "}
         <a href="https://twitter.com/_robcerda" target="_blank">
