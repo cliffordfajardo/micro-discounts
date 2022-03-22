@@ -2,19 +2,20 @@
   "name": "remix-app-template",
   "private": true,
   "description": "",
-  "license": "",
+  "license": "MIT",
   "sideEffects": false,
   "scripts": {
     "build": "cross-env NODE_ENV=production remix build",
     "dev": "remix dev",
-    "postinstall": "remix setup node && sh ./scripts/check-volta-cli.sh",
+    "postinstall": "remix setup node",
     "lint": "eslint --cache --ext .tsx,.ts,.js,.jsx,.md  --fix",
     "pretty": "prettier --write . --e",
-    "seed-db": "node -r ts-node/register ./seed-db/convertDataToSupabase.ts",
-    "seed-db-02": "node -r ts-node/register ./seed-db/upload-discounts-02.ts",
-    "seed-db-save-icon": "node -r ts-node/register ./seed-db/save-icon.ts",
-    "test": "echo RUNNING TEST...TODO need to write tests",
-    "prepare": "husky install"
+    "preinstall": "npm run setup-env",
+    "prepare": "husky install",
+    "seed-db": "node -r ts-node/register ./app/data/convertDataToSupabase.ts",
+    "seed-db-02": "node -r ts-node/register ./app/data/upload-discounts-02.ts",
+    "setup-env": "sh ./scripts/check-volta-cli.sh",
+    "test": "echo RUNNING TEST...TODO need to write tests"
   },
   "dependencies": {
     "@nextui-org/react": "1.0.2-beta.4",
@@ -34,7 +35,6 @@
     "@testing-library/react": "^12.1.4",
     "@types/react": "^17.0.41",
     "@types/react-dom": "^17.0.14",
-    "@types/request": "^2.48.8",
     "concurrently": "^7.0.0",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.0",
@@ -43,7 +43,6 @@
     "jest": "^27.5.1",
     "lint-staged": "^12.3.7",
     "prettier": "^2.6.0",
-    "request": "^2.88.2",
     "sass": "^1.49.9",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.2"

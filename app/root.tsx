@@ -34,6 +34,7 @@ export const links = () => {
  * @description
  * This loader is used for determining what enviornment we are in "development" or "production"
  * The environment variable is passed down to the browser
+ * See: https://remix.run/docs/en/v1/guides/envvars#server-environment-variables
  */
 export async function loader() {
   return json({

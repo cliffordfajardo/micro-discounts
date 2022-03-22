@@ -20,8 +20,8 @@ const ViewSourceGithub = () => {
         <svg
           viewBox="0 0 250 250"
           style={{
-            height: isMobile ? 50 : 80,
-            width: isMobile ? 50 : 80,
+            height: isMobile ? 35 : 80,
+            width: isMobile ? 35 : 80,
           }}
         >
           <path className="octo-triangle" d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
