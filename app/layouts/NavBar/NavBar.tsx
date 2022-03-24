@@ -218,6 +218,6 @@ const HamburgerBar = styled("div", {
   position: "relative",
   width: 25,
   height: 4,
-  backgroundColor: "$black",
+  backgroundColor: "$text",
   borderRadius: "$pill",
 });
